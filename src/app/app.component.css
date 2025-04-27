@@ -1,0 +1,137 @@
+body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* Evita que salga el scroll lateral */
+}
+
+/* Navbar */
+.navbar {
+    width: 100%;
+    background-color: #15122e;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    transition: top 0.3s;
+}
+
+/* Contenedor del navbar */
+.navbar-container {
+    max-width: 1200px; /* Tamaño máximo en pantallas grandes */
+    margin: 0 auto; /* Centra el contenedor */
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Menú de la izquierda */
+.navbar-left .nav {
+    list-style: none;
+    display: flex;
+    gap: 15px; /* Ajuste del espacio entre los elementos */
+    margin: 0;
+    padding: 0;
+}
+
+.navbar-left .nav li a {
+    text-decoration: none;
+    color: white; /* Color blanco por defecto */
+    font-weight: 500;
+    font-size: 14px; /* Fuente más pequeña en dispositivos móviles */
+    transition: color 0.3s;
+}
+
+/* Estado activo (seleccionado) */
+.navbar-left .nav li a.active {
+    color: #ff512f; /* Cambia el color del texto cuando está seleccionado */
+    font-weight: bold;
+}
+
+/* Botones de la derecha */
+.navbar-right {
+    display: flex;
+    gap: 10px;
+}
+
+.btn {
+    background: linear-gradient(to right, #ff512f, #dd2476); /* Bonito degradado */
+    color: white;
+    padding: 6px 15px; /* Botones más pequeños */
+    border-radius: 20px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+.btn:hover {
+    background: linear-gradient(to right, #dd2476, #ff512f);
+}
+
+.btn-signup {
+    background: linear-gradient(to right, #f7971e, #ffd200);
+}
+
+.btn-signup:hover {
+    background: linear-gradient(to right, #ffd200, #f7971e);
+}
+
+/* Ajustamos para que el contenido de abajo no quede tapado por el header fijo */
+router-outlet {
+    display: block;
+    margin-top: 80px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    /* Navbar ajustado para móviles */
+    .navbar {
+        padding: 10px 15px;
+    }
+
+    .navbar-left .nav {
+        flex-direction: row; /* Los elementos se alinean horizontalmente */
+        justify-content: center;
+        margin-top: 0;
+    }
+
+    .navbar-left .nav li a {
+        font-size: 14px; /* Fuente más pequeña en móviles */
+        padding: 5px 10px; /* Menor espacio alrededor de los enlaces */
+    }
+
+    .navbar-right {
+        gap: 8px; /* Ajuste en los botones de la derecha */
+    }
+
+    .btn {
+        padding: 6px 12px; /* Botones más pequeños en móviles */
+        font-size: 14px;
+    }
+
+    .navbar-container {
+        flex-direction: row;
+        gap: 15px; /* Espacio entre los elementos */
+        align-items: center;
+    }
+}
+
+/* Para pantallas grandes */
+@media (min-width: 1200px) {
+    .navbar-left .nav {
+        gap: 40px; /* Aumenta el espacio entre los elementos del menú */
+    }
+
+    .navbar-left .nav li a {
+        font-size: 18px; /* Fuente más grande en pantallas grandes */
+    }
+
+    .navbar-right {
+        gap: 20px;
+    }
+}

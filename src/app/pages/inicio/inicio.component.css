@@ -1,0 +1,202 @@
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background: #0a0a1f;
+    color: white;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: fadeIn 1s ease-out; /* Animación de entrada */
+}
+
+/* Estilo para el logo principal dentro de un círculo blanco */
+.logo-inicio {
+    width: 250px;
+    height: 250px;
+    display: block;
+    margin-bottom: 1rem;
+    opacity: 2;
+    animation: fadeIn 2s forwards; /* Fade in para el logo */
+    border-radius: 25px;
+    border: 5px solid white;
+    box-shadow: 0 4px 15px rgba(255, 255, 255, 0.5);
+    background: linear-gradient(90deg, #FF0000 0%, #FFCC00 100%);
+    padding: 10px;
+    box-sizing: border-box;
+    background: white;
+    padding: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+}
+
+/* Contenedor principal */
+.contenedor-inicio {
+    background: url('/assets/fondo.png');
+    background-size: cover;
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    background-position: center;
+    background-repeat: no-repeat;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 2rem;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1400px;
+    animation: slideIn 1s ease-out; /* Animación de entrada del contenedor */
+}
+
+/* Parte izquierda */
+.contenedor-izquierdo {
+    flex: 2;
+    padding-right: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+    animation: fadeInLeft 1.5s ease-out; /* Animación de entrada desde la izquierda */
+}
+
+/* Título */
+.contenedor-izquierdo h1 {
+    color: #FF0000;
+    font-size: 2.8rem;
+    margin-bottom: 1rem;
+    opacity: 0;
+    animation: fadeIn 1.5s 0.5s forwards; /* Fade in para el título con retraso */
+}
+
+/* Texto */
+.contenedor-izquierdo p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+    opacity: 0;
+    animation: fadeIn 2s 1s forwards; /* Fade in para el texto con retraso */
+}
+
+/* Botón principal */
+.btn-inicial {
+    background: linear-gradient(90deg, #FF0000 0%, #FFCC00 100%);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    padding: 1rem 2rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s;
+    animation: fadeInUp 1s 1.5s forwards; /* Animación de entrada del botón */
+}
+
+/* Hover botón */
+.btn-inicial:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 15px rgba(255, 0, 0, 0.5);
+    background-color: #FF512F;
+}
+
+/* Parte derecha */
+.contenedor-derecho {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    animation: fadeInRight 1.5s ease-out; /* Animación de entrada desde la derecha */
+}
+
+/* Imágenes redondas */
+.imagen-circular {
+    width: 140px;
+    height: 140px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid white;
+    opacity: 0;
+    animation: fadeInUp 1.5s 2s forwards; /* Fade in para las imágenes con retraso */
+}
+
+/* Efecto de sombra en las imágenes */
+.imagen-circular:hover {
+    box-shadow: 0 4px 15px rgba(255, 0, 0, 0.5);
+    transform: scale(1.05);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+@keyframes fadeInLeft {
+    0% { opacity: 0; transform: translateX(-50px); }
+    100% { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes fadeInRight {
+    0% { opacity: 0; transform: translateX(50px); }
+    100% { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes fadeInUp {
+    0% { opacity: 0; transform: translateY(30px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideIn {
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(0); }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .contenedor-inicio {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .contenedor-izquierdo,
+    .contenedor-derecho {
+        align-items: center;
+        padding: 0;
+    }
+
+    .contenedor-derecho {
+        margin-top: 2rem;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    /* Imágenes en dispositivos móviles */
+    .imagen-circular1,
+    .imagen-circular3
+     {
+        
+        width: 170px;
+        height: 170px;
+    }
+
+    .imagen-circular2,
+    .imagen-circular4 {
+        
+        width: 170px;
+        height: 170px;
+    }
+}
+/* Posicionamiento de imágenes circulares */
+.imagen-circular:nth-child(odd) {
+    float: left;
+    margin-right: 50%;
+}
+
+.imagen-circular:nth-child(even) {
+    float: right;
+    margin-left: 50%;
+}
