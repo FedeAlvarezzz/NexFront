@@ -7,17 +7,24 @@ body {
 /* Navbar */
 .navbar {
     width: 100%;
-    background-color: #15122e;
+    background-color: rgba(21, 18, 46, 0.95);
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 10px 20px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
     position: fixed;
     top: 0;
     left: 0;
     z-index: 1000;
-    transition: top 0.3s;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.navbar:hover {
+    background-color: rgba(21, 18, 46, 0.98);
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.4);
 }
 
 /* Contenedor del navbar */
@@ -28,6 +35,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    animation: fadeInDown 0.5s ease-out;
 }
 
 /* Menú de la izquierda */
@@ -39,18 +47,50 @@ body {
     padding: 0;
 }
 
+.navbar-left .nav li {
+    position: relative;
+}
+
 .navbar-left .nav li a {
     text-decoration: none;
     color: white; /* Color blanco por defecto */
     font-weight: 500;
     font-size: 14px; /* Fuente más pequeña en dispositivos móviles */
-    transition: color 0.3s;
+    padding: 8px 12px;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.navbar-left .nav li a::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.1);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s ease;
+}
+
+.navbar-left .nav li a:hover::before {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+.navbar-left .nav li a:hover {
+    color: #ff512f;
+    transform: translateY(-2px);
 }
 
 /* Estado activo (seleccionado) */
 .navbar-left .nav li a.active {
-    color: #ff512f; /* Cambia el color del texto cuando está seleccionado */
+    color: #ff512f;
     font-weight: bold;
+    background: rgba(255, 81, 47, 0.1);
 }
 
 /* Botones de la derecha */
@@ -60,25 +100,64 @@ body {
 }
 
 .btn {
-    background: linear-gradient(to right, #ff512f, #dd2476); /* Bonito degradado */
+    background: linear-gradient(45deg, #ff512f, #dd2476);
     color: white;
-    padding: 6px 15px; /* Botones más pequeños */
-    border-radius: 20px;
+    padding: 8px 20px;
+    border-radius: 25px;
     text-decoration: none;
     font-weight: bold;
-    transition: background 0.3s;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(255, 81, 47, 0.3);
+}
+
+.btn::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    transform: translateX(-100%);
+    transition: transform 0.6s ease;
+}
+
+.btn:hover::after {
+    transform: translateX(100%);
 }
 
 .btn:hover {
-    background: linear-gradient(to right, #dd2476, #ff512f);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 81, 47, 0.4);
 }
 
 .btn-signup {
-    background: linear-gradient(to right, #f7971e, #ffd200);
+    background: linear-gradient(45deg, #f7971e, #ffd200);
+    box-shadow: 0 4px 15px rgba(247, 151, 30, 0.3);
 }
 
 .btn-signup:hover {
-    background: linear-gradient(to right, #ffd200, #f7971e);
+    box-shadow: 0 6px 20px rgba(247, 151, 30, 0.4);
+}
+
+/* Animaciones */
+@keyframes fadeInDown {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
 }
 
 /* Ajustamos para que el contenido de abajo no quede tapado por el header fijo */
@@ -102,7 +181,7 @@ router-outlet {
 
     .navbar-left .nav li a {
         font-size: 14px; /* Fuente más pequeña en móviles */
-        padding: 5px 10px; /* Menor espacio alrededor de los enlaces */
+        padding: 6px 10px; /* Menor espacio alrededor de los enlaces */
     }
 
     .navbar-right {
@@ -110,7 +189,7 @@ router-outlet {
     }
 
     .btn {
-        padding: 6px 12px; /* Botones más pequeños en móviles */
+        padding: 6px 15px; /* Botones más pequeños en móviles */
         font-size: 14px;
     }
 
@@ -128,10 +207,16 @@ router-outlet {
     }
 
     .navbar-left .nav li a {
-        font-size: 18px; /* Fuente más grande en pantallas grandes */
+        font-size: 16px;
+        padding: 10px 15px;
     }
 
     .navbar-right {
         gap: 20px;
+    }
+
+    .btn {
+        padding: 10px 25px;
+        font-size: 16px;
     }
 }
