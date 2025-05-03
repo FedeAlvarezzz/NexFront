@@ -1,33 +1,65 @@
+<!DOCTYPE html>
+<html>
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inicio</title>
-    <link rel="stylesheet" href="inicio.component.css">
+  <link href="https://fonts.googleapis.com/css?family=Archivo:400,600&display=swap" rel="stylesheet" />
+  <link href="inicio.component.css" rel="stylesheet" />
+  <title>NEX - Community Safety Hub</title>
 </head>
 
 <body>
-    <div class="contenedor-inicio">
-        <!-- Parte izquierda -->
-        <div class="contenedor-izquierdo">
-            <img src="assets/nexlogo.png" class="logo-inicio" alt="NEX Logo">
-            <h1>Bienvenido a NEX</h1>
-            <p>
-                En NEX, creemos que la seguridad comienza con la conciencia y la acción. Nuestra plataforma te da el poder
-                de reportar incidentes, mantenerte informado y colaborar con tu comunidad para crear un entorno más seguro
-                para todos. <br><br>
-                Cada reporte cuenta, y juntos podemos prevenir riesgos, responder más rápido y construir una comunidad más
-                fuerte y conectada.
-                Únete a nosotros para marcar la diferencia, ¡porque la seguridad es una responsabilidad compartida!
-            </p>
-            <a href="login" class="btn-inicial">Empecemos</a>
-        </div>
+  <div class="v272_3">
+    <div class="fondo"></div>
 
-        <!-- Parte derecha -->
-        <div class="contenedor-derecho">
-            <img src="assets/ambulancia.png" alt="Ambulancia" class="imagen-circular imagen-circular2">
-            <img src="assets/policia.png" alt="Policia" class="imagen-circular imagen-circular4">
-            <img src="assets/patrulla.png" alt="Patrulla" class="imagen-circular imagen-circular1">
-            <img src="assets/rescate.png" alt="Rescate" class="imagen-circular imagen-circular3">
-        </div>
+    <!-- Contenedor de imágenes -->
+    <div class="imagenes-container">
+      <div class="imagen-circular img-rescate"></div>
+      <div class="imagen-circular img-patrulla"></div>
+      <div class="imagen-circular img-policia"></div>
+      <div class="imagen-circular img-ambulancia"></div>
     </div>
+    
+    <div class="btnGetStarted">
+      <span>GET STARTED</span>
+    </div>
+    
+    <span class="texto-inicial">
+      At NEX, we believe that safety starts with awareness and action. Our platform empowers you to report incidents,
+      stay informed, and collaborate with your community to create a safer environment for everyone.
+      Every report matters, and together, we can prevent risks, respond faster, and build a stronger, more connected
+      community. Join us in making a difference – because safety is a shared responsibility!
+    </span>
+    
+    <span class="texto-titulo">
+      Welcome to NEX – Your Community Safety Hub!
+    </span>
+
+    <div class="barra-rectangulo"></div>
+    <div class="circulo-barra"></div>
+    <div class="logo"></div>
+    
+    <div class="btn-login">
+      <span>LOGIN</span>
+    </div>
+    <div class="btn-signUp">
+      <span>SIGN UP</span>
+    </div>
+  </div>
+
+  <script>
+    // Aquí puedes agregar interactividad con JavaScript
+    document.querySelector('.btnGetStarted').addEventListener('click', function() {
+      alert('¡Bienvenido a NEX! Pronto estarás iniciando tu experiencia.');
+    });
+
+    document.querySelector('.btn-login').addEventListener('click', function() {
+      alert('Página de inicio de sesión próximamente');
+    });
+
+    document.querySelector('.btn-signUp').addEventListener('click', function() {
+      alert('Página de registro próximamente');
+    });
+  </script>
 </body>
+
+</html>
