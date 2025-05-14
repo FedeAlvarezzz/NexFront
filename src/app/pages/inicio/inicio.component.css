@@ -47,8 +47,8 @@ body {
     border-radius: 50%;
     transition: transform 0.3s;
 
-    /*animaciones*/
-    animation: flotar 2s ease-in-out infinite;
+     /*animaciones*/ 
+     animation: flotar 2.5s ease-in-out infinite;
   }
   
   .imagen-circular:hover {

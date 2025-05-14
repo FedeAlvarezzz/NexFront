@@ -2,6 +2,7 @@ body {
     margin: 0;
     padding: 0;
     overflow-x: hidden; /* Evita que salga el scroll lateral */
+    font-family: Arial, sans-serif;
 }
 
 /* Navbar */
@@ -20,6 +21,7 @@ body {
     transition: all 0.3s ease;
     backdrop-filter: blur(10px);
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    box-sizing: border-box;
 }
 
 .navbar:hover {
@@ -160,10 +162,19 @@ body {
     100% { transform: scale(1); }
 }
 
-/* Ajustamos para que el contenido de abajo no quede tapado por el header fijo */
-router-outlet {
-    display: block;
-    margin-top: 80px;
+/* Main content area */
+.main-content {
+    padding-top: 80px; /* Esta altura debe ser igual o mayor que la altura de tu navbar */
+    min-height: calc(100vh - 80px);
+    width: 100%;
+    position: relative;
+    box-sizing: border-box;
+}
+
+/* Reemplazamos el estilo para router-outlet por un contenedor que lo envolverá */
+.router-content {
+    width: 100%;
+    position: relative;
 }
 
 /* Responsive */
@@ -180,8 +191,8 @@ router-outlet {
     }
 
     .navbar-left .nav li a {
-        font-size: 14px; /* Fuente más pequeña en móviles */
-        padding: 6px 10px; /* Menor espacio alrededor de los enlaces */
+        font-size: 13px; /* Fuente más pequeña en móviles */
+        padding: 6px 8px; /* Menor espacio alrededor de los enlaces */
     }
 
     .navbar-right {
@@ -197,6 +208,11 @@ router-outlet {
         flex-direction: row;
         gap: 15px; /* Espacio entre los elementos */
         align-items: center;
+    }
+    
+    /* Ajustamos el padding-top del contenido principal para móviles */
+    .main-content {
+        padding-top: 70px;
     }
 }
 
