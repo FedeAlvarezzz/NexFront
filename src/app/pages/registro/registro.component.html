@@ -1,15 +1,15 @@
 <form [formGroup]="registroForm" (ngSubmit)="registrar()" novalidate="">
     <div>
-      <label>Cédula: </label>
-      <input type="text" formControlName="cedula" />
-    </div>
-    <div>
-      <label>Nombre: </label>
+      <label>Nombre Completo: </label>
       <input type="text" formControlName="nombre" />
     </div>
      <div>
-      <label>Email: </label>
+      <label>Correo Electrónico: </label>
       <input type="email" formControlName="email" />
+    </div>
+    <div>
+      <label>Ciudad: </label>
+      <input type="text" formControlName="ciudad" />
     </div>
      <div>
       <label>Dirección: </label>
@@ -23,5 +23,10 @@
       <label>Contraseña: </label>
       <input type="password" formControlName="password" />
     </div>
+    <div>
+      <label>Confirmar Contraseña: </label>
+      <input type="password" formControlName="confirmarPassword" />
+    </div>
+      
      <button type="submit" [disabled]="registroForm.invalid" >Registrarse</button>
   </form>
