@@ -10,6 +10,7 @@ import { DetalleReporteComponent } from './pages/reportes/detalle-reporte/detall
 import { CrearReporteComponent } from './pages/reportes/crear-reporte/crear-reporte.component';
 
 
+
 export const routes: Routes = [
    { path: '', redirectTo: 'inicio', pathMatch: 'full' },
    { path: 'inicio', component: InicioComponent },
