@@ -1,0 +1,157 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Archivo', sans-serif;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #8b0000 100%);
+}
+
+.contenedor-login {
+  display: flex;
+  width: 800px;
+  height: 500px;
+  background: #fff;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+}
+
+.formulario {
+  width: 50%;
+  padding: 60px 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.seccion-marca {
+  width: 50%;
+  background: linear-gradient(135deg, #0f0c29 0%, #24243e 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  position: relative;
+}
+
+.titulo {
+  color: #ff0000;
+  font-size: 32px;
+  font-weight: 600;
+  margin-bottom: 40px;
+  letter-spacing: 1px;
+}
+
+.grupo-campo {
+  width: 100%;
+  margin-bottom: 20px;
+  position: relative;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.grupo-campo input {
+  width: 100%;
+  padding: 12px 15px;
+  border: 1px solid #ddd;
+  border-radius: 30px;
+  outline: none;
+  font-size: 14px;
+  transition: all 0.3s;
+}
+
+.icono-campo {
+  position: absolute;
+  left: -10px;
+  top: 12px;
+  width: 20px;
+  height: 20px;
+}
+
+.enlace-recuperar {
+  align-self: flex-end;
+  font-size: 13px;
+  padding-right: 25ng serve --host 0.0.0.0px;
+  color: #666;
+  text-decoration: none;
+  margin-bottom: 30px;
+}
+
+.enlace-recuperar:hover {
+  color: #ff0000;
+}
+
+.boton {
+  width: 90%;
+  padding: 12px;
+  border: none;
+  border-radius: 30px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-bottom: 15px;
+  transition: all 0.3s;
+  text-align: center;
+}
+
+.boton-login {
+  background: linear-gradient(45deg, #ff0000, #ff8c00);
+  color: white;
+}
+
+.boton-registro {
+  background: #0f0c29;
+  color: white;
+}
+
+.boton:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.logo-nex {
+  width: 200px;
+  height: 200px;
+  margin-bottom: 30px;
+}
+
+.logo-mini {
+  position: absolute;
+  bottom: 20px;
+  width: 30px;
+  height: 30px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .contenedor-login {
+    width: 90%;
+    flex-direction: column;
+    height: auto;
+  }
+
+  .formulario,
+  .seccion-marca {
+    width: 100%;
+    padding: 30px 20px;
+  }
+
+  .seccion-marca {
+    order: -1;
+    padding: 40px 20px;
+  }
+
+  .logo-nex {
+    width: 150px;
+    height: 150px;
+  }
+}

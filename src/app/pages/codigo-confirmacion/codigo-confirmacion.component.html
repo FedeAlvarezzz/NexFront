@@ -1,1 +1,81 @@
-<p>codigo-confirmacion works!</p>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Archivo:400,600&display=swap" rel="stylesheet" />
+    <link href="codigo-confirmacion.component.css" rel="stylesheet" />
+    <title>NEX - Confirmación de Código</title>
+</head>
+<body>
+    <div class="container">
+        <div class="confirmation-card">
+            <h1 class="title">Confirmation Code</h1>
+            
+            <p class="instruction">
+                Your confirmation code has been sent to your email. Please check your inbox and enter the code to proceed.
+            </p>
+            
+            <div class="code-container">
+                <input type="text" class="code-input" maxlength="1" autofocus>
+                <input type="text" class="code-input" maxlength="1">
+                <input type="text" class="code-input" maxlength="1">
+                <span class="separator">-</span>
+                <input type="text" class="code-input" maxlength="1">
+                <input type="text" class="code-input" maxlength="1">
+                <input type="text" class="code-input" maxlength="1">
+            </div>
+            
+            <button class="login-btn">LOGIN</button>
+        </div>
+    </div>
+
+    <script>
+        // Script para manejar la entrada del código de confirmación
+        const inputs = document.querySelectorAll('.code-input');
+        
+        inputs.forEach((input, index) => {
+            // Auto-avanzar al siguiente campo después de ingresar un número
+            input.addEventListener('input', function() {
+                if (this.value.length === 1 && index < inputs.length - 1) {
+                    // Si no es el último input, mover al siguiente
+                    if (index !== 2) { // Saltamos el separador después del tercer input
+                        inputs[index + 1].focus();
+                    } else {
+                        // Si es el tercer input, saltar al cuarto (después del separador)
+                        inputs[index + 1].focus();
+                    }
+                }
+            });
+            
+            // Manejar la tecla de retroceso para volver al campo anterior
+            input.addEventListener('keydown', function(e) {
+                if (e.key === 'Backspace' && !this.value && index > 0) {
+                    // Si presiona retroceso en un campo vacío, volver al anterior
+                    if (index !== 3) { // No volver al separador
+                        inputs[index - 1].focus();
+                    } else {
+                        // Si es el cuarto input (después del separador), volver al tercero
+                        inputs[index - 1].focus();
+                    }
+                }
+            });
+        });
+        
+        // Función del botón login
+        document.querySelector('.login-btn').addEventListener('click', function() {
+            let code = '';
+            inputs.forEach(input => {
+                code += input.value;
+            });
+            
+            if (code.length === 6) {
+                alert('Código enviado: ' + code);
+                // Aquí puedes añadir la lógica para verificar el código
+            } else {
+                alert('Por favor, introduce el código completo de 6 dígitos');
+            }
+        });
+    </script>
+</body>
+</html>
