@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ReporteDTO } from '../../../dto/reporte-dto';
+import { ReporteDTO } from '../../../interface/reporte-dto';
 import { ReportesService } from '../../../services/reportes.service';
 import { RouterModule } from '@angular/router';
 import Swal from 'sweetalert2';

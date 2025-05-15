@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ReporteDTO } from '../../../dto/reporte-dto';
+import { ReporteDTO } from '../../../interface/reporte-dto';
 import { ActivatedRoute } from '@angular/router';
 import { ReportesService } from '../../../services/reportes.service';
 import { CommonModule } from '@angular/common';

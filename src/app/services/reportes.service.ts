@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { ReporteDTO } from '../dto/reporte-dto';
+import { ReporteDTO } from '../interface/reporte-dto';
 
 
 @Injectable({

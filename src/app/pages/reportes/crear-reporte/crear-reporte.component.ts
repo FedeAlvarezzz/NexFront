@@ -1,6 +1,6 @@
 import { Component, AfterViewInit, Inject, PLATFORM_ID } from '@angular/core';
 import { ReportesService } from '../../../services/reportes.service';
-import { ReporteDTO } from '../../../dto/reporte-dto';
+import { ReporteDTO } from '../../../interface/reporte-dto';
 import Swal from 'sweetalert2';
 import { FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { FormBuilder } from '@angular/forms';
