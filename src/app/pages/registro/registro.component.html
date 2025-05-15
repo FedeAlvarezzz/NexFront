@@ -1,32 +1,32 @@
-<form [formGroup]="registroForm" (ngSubmit)="registrar()" novalidate="">
-    <div>
-      <label>Nombre Completo: </label>
-      <input type="text" formControlName="nombre" />
-    </div>
-     <div>
-      <label>Correo Electrónico: </label>
-      <input type="email" formControlName="email" />
-    </div>
-    <div>
-      <label>Ciudad: </label>
-      <input type="text" formControlName="ciudad" />
-    </div>
-     <div>
-      <label>Dirección: </label>
-      <input type="text" formControlName="direccion" />
-    </div>
-     <div>
-      <label>Teléfono: </label>
-      <input type="number" formControlName="telefono" />
-    </div>
-     <div>
-      <label>Contraseña: </label>
-      <input type="password" formControlName="password" />
-    </div>
-    <div>
-      <label>Confirmar Contraseña: </label>
-      <input type="password" formControlName="confirmarPassword" />
-    </div>
-      
-     <button type="submit" [disabled]="registroForm.invalid" >Registrarse</button>
-  </form>
+<form [formGroup]="miFormulario" *ngIf="miFormulario">
+  <div>
+    <label for="nombre">Nombre Completo: </label>
+    <input id="nombre" type="text" formControlName="nombre" />
+  </div>
+  <div>
+    <label>Correo Electrónico: </label>
+    <input type="email" formControlName="email" />
+  </div>
+  <div>
+    <label>Ciudad: </label>
+    <input type="text" formControlName="ciudad" />
+  </div>
+  <div>
+    <label>Dirección: </label>
+    <input type="text" formControlName="direccion" />
+  </div>
+  <div>
+    <label>Teléfono: </label>
+    <input type="number" formControlName="telefono" />
+  </div>
+  <div>
+    <label>Contraseña: </label>
+    <input type="password" formControlName="password" />
+  </div>
+  <div>
+    <label>Confirmar Contraseña: </label>
+    <input type="password" formControlName="confirmarPassword" />
+  </div>
+  
+  <button type="submit" [disabled]="miFormulario.invalid">Registrarse</button>
+</form>
