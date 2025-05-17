@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-inicio',
@@ -7,12 +8,16 @@ import { Component } from '@angular/core';
   styleUrl: './inicio.component.css'
 })
 export class InicioComponent {
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
     // Código a ejecutar al inicializar el componente
     console.log('Componente Inicio inicializado');
-  
+  }
+
+  irALogin(): void {
+    this.router.navigate(['/login']);
+    console.log('Navegando a /login');
   }
 
   // Métodos adicionales para la lógica del componente

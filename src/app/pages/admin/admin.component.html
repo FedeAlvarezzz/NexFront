@@ -1,0 +1,36 @@
+<h2 class="title">NEX Administration</h2>
+
+<button mat-raised-button color="warn" (click)="cerrarSesion()">Log Out</button>
+
+<div *ngIf="reportes.length > 0 else noReportes">
+    <div *ngFor="let reporte of reportes" class="reporte-card">
+        <div class="reporte-info">
+            <h3>{{ reporte.titulo }}</h3>
+            <p><strong>Categoría:</strong> {{ reporte.categoria }}</p>
+            <p><strong>Descripción:</strong> {{ reporte.descripcion }}</p>
+            <p><strong>Ubicación:</strong> Lat: {{ reporte.latitud }}, Lng: {{ reporte.longitud }}</p>
+            <p>
+              <strong>Estado:</strong>
+              <span [ngClass]="{
+                'pendiente': reporte.estado === 'Pendiente',
+                'aprobado': reporte.estado === 'Aprobado',
+                'rechazado': reporte.estado === 'Rechazado'
+              }">
+                {{ reporte.estado }}
+              </span>
+            </p>
+          </div>
+          <div class="button-group">
+            <button mat-raised-button color="primary" (click)="cambiarEstado(reporte, 'Aprobado')">Approve</button>
+            <button mat-raised-button color="warn" (click)="cambiarEstado(reporte, 'Rechazado')">Reject</button>
+            <button mat-raised-button color="warn" (click)="eliminarReporte(reporte.id)">Delete</button>
+
+        </div>
+        </div>
+       
+    </div>
+
+
+<ng-template #noReportes>  
+    <p>There are no reports.</p>
+</ng-template>
