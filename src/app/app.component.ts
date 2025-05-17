@@ -19,7 +19,7 @@ export class AppComponent {
     this.router.events
       .pipe(filter(event => event instanceof NavigationEnd))
       .subscribe((event: NavigationEnd) => {
-        const rutasSinLayout = ['/login', '/registro', '/inicio', '/', '/codigo-confirmacion'];
+        const rutasSinLayout = ['/login', '/registro', '/inicio', '/', '/codigo-confirmacion', '/home-admin'];
         this.mostrarLayout = !rutasSinLayout.includes(event.urlAfterRedirects);
       });
   }
