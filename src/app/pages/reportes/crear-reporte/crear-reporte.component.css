@@ -1,8 +1,5 @@
-html, body {
-  background-image: url('/assets/fondo.png');
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
+body {
+  background: url('/assets/fondo.png') center/cover no-repeat;
   animation: fadeInBackground 2s ease-in-out;
 }
 

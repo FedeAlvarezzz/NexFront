@@ -1,18 +1,22 @@
+body{
+    background: url('/assets/fondo.png') center/cover no-repeat;
+}
 .container {
-   
-    margin-top: 5rem;
+    margin-top: 5rem;   
 }
 
 h1 {
     margin-bottom: 2rem;
     font-size: 2.5rem;
     font-weight: bold;
+    color:#ffffff;
     text-align: center;
 }
 
 .row {
     display: flex;
     justify-content: space-around;
+    
 }
 
 .col-md-4 {
