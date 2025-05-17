@@ -1,220 +1,170 @@
 body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Archivo', sans-serif;
-  }
-  
-  .v272_3 {
-    width: 100%;
-    height: 1024px;
-    background: rgba(255, 255, 255, 1);
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    overflow: hidden;
-  }
-  
-  .fondo {
-    width: 100%;
-    height: 924px;
-    background:url('/assets/fondo.png') center/cover no-repeat;
-    position: absolute;
-    top: 100px;
-    left: 0px;
-    overflow: hidden;
-  }
-  
-  /* Contenedor para todas las imágenes */
-  .imagenes-container {
-    position: absolute;
-    top: 200px;
-    right: 100px;
-    width: 400px;
-    height: 770px;
-    z-index: 5;
-    /* Puedes añadir más propiedades si deseas mover el contenedor completo */
-  }
-  
-  /* Clase compartida para todas las imágenes circulares */
-  .imagen-circular {
-    width: 200px;
-    height: 200px;
-    background-color: rgba(217, 217, 217, 1);
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    position: absolute;
-    border-radius: 50%;
-    transition: transform 0.3s;
+  margin: 0;
+  padding: 0;
+  font-family: 'Archivo', sans-serif;
+}
 
-     /*animaciones*/ 
-     animation: flotar 2.5s ease-in-out infinite;
-  }
-  
-  .imagen-circular:hover {
-    box-shadow: 0 0 15px rgba(255, 0, 0, 0.7);
-    transform: scale(1.1);
-  }
-  
-  /* Propiedades específicas para cada imagen */
-  .img-rescate {
-    background-image: url('/assets/rescate.png');
-    bottom: 0;
-    right: 0;
-  }
-  
-  .img-patrulla {
-    background-image: url('/assets/patrulla.png');
-    bottom: 200px;
-    left: 0;
-  }
-  
-  .img-policia {
-    background-image: url('/assets/policia.png');
-    bottom: 400px;
-    right: 0;
-  }
-  
-  .img-ambulancia {
-    background-image: url('/assets/ambulancia.png');
-    top: 0;
-    left: 0;
-  }
-  
-  .btnGetStarted {
-    width: 409px;
-    height: 87px;
-    background: linear-gradient(rgba(255, 0, 0, 1), rgba(254, 203, 0, 1));
-    position: absolute;
-    top: 818px;
-    left: 252px;
-    border-top-left-radius: 30px;
-    border-top-right-radius: 30px;
-    border-bottom-left-radius: 30px;
-    border-bottom-right-radius: 30px;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    transition: transform 0.3s, box-shadow 0.3s;
-  }
-  
-  .btnGetStarted:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(255, 0, 0, 0.3);
-  }
-  
-  .btnGetStarted span {
-    color: white;
-    font-size: 28px;
-    font-weight: 600;
-    text-transform: uppercase;
-  }
-  
-  .texto-inicial {
-    width: 790px;
-    color: rgba(255, 255, 255, 1);
-    position: absolute;
-    top: 444px;
-    left: 75px;
-    font-family: Archivo;
-    font-size: 26px;
-    line-height: 1.8;
-    text-align: left;
-  }
-  
-  .texto-titulo {
-    width: 793px;
-    color: rgba(255, 0, 0, 1);
-    position: absolute;
-    top: 383px;
-    left: 77px;
-    font-family: Archivo;
-    font-weight: 600;
-    font-size: 36px;
-    text-align: left;
-  }
-  
-  .barra-rectangulo {
-    width: 100%;
-    height: 100px;
-    background: rgb(255, 255, 255);
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    overflow: hidden;
-    z-index: 10;
-  }
-  
-  /* Agrupamos los estilos de botones */
-  .btn-login, .btn-signUp {
-    width: 200px;
-    height: 60px;
-    background: linear-gradient(rgba(255, 0, 0, 1), rgba(254, 203, 0, 1));
-    position: absolute;
-    top: 20px;
-    border-radius: 25px;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    transition: transform 0.3s, box-shadow 0.3s;
-    z-index: 20;
-  }
-  
-  .btn-login:hover, .btn-signUp:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(255, 0, 0, 0.3);
-  }
-  
-  .btn-login {
-    left: 1000px;
-  }
-  
-  .btn-signUp {
-    left: 1270px;
-  }
-  
-  .btn-login span, .btn-signUp span {
-    color: white;
-    font-size: 15px;
-    font-weight: 600;
-  }
-  
-  .circulo-barra {
-    width: 400px;
-    height: 400px;
-    background: rgba(255, 255, 255, 1);
-    position: absolute;
-    top: -100px;
-    left: -25px;
-    border-radius: 50%;
-    z-index: 15;
-  }
-  
-  .logo {
-    width: 202px;
-    height: 202px;
-    background: url('/assets/nexlogo.png') center/contain no-repeat;
-    position: absolute;
-    top: 39px;
-    left: 75px;
-    overflow: hidden;
-    z-index: 20;
-  }
+.v272_3 {
+  width: 100%;
+  height: 1024px;
+  background: white;
+  position: relative;
+  overflow: hidden;
+}
 
-  /*Animaciones */
-  @keyframes flotar {
-    0% {
-      transform: translateY(0);
-    }
-    50% {
-      transform: translateY(-10px); /* Eleva el elemento */
-    }
-    100% {
-      transform: translateY(0);
-    }
-  }
+.fondo {
+  width: 100%;
+  height: 924px;
+  background: url('/assets/fondo.png') center/cover no-repeat;
+  position: absolute;
+  top: 100px;
+  left: 0;
+}
+
+/* Imágenes */
+.imagenes-container {
+  position: absolute;
+  top: 200px;
+  right: 100px;
+  width: 400px;
+  height: 770px;
+  z-index: 5;
+}
+
+.imagen-circular {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+  position: absolute;
+  transition: transform 0.3s;
+  animation: flotar 2.5s ease-in-out infinite;
+}
+
+.imagen-circular:hover {
+  box-shadow: 0 0 15px rgba(255, 0, 0, 0.7);
+  transform: scale(1.1);
+}
+
+.img-rescate { bottom: 0; right: 0; }
+.img-patrulla { bottom: 200px; left: 0; }
+.img-policia { bottom: 400px; right: 0; }
+.img-ambulancia { top: 0; left: 0; }
+
+/* Botón principal */
+.btnGetStarted {
+  width: 409px;
+  height: 87px;
+  background: linear-gradient(red, orange);
+  position: absolute;
+  top: 870px;
+  left: 252px;
+  border-radius: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.btnGetStarted:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(255, 0, 0, 0.3);
+}
+
+.btnGetStarted span {
+  color: white;
+  font-size: 28px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+/* Textos */
+.texto-inicial {
+  width: 790px;
+  color: white;
+  position: absolute;
+  top: 490px;
+  left: 75px;
+  font-size: 26px;
+  line-height: 1.8;
+}
+
+.texto-titulo {
+  width: 793px;
+  color: red;
+  position: absolute;
+  top: 383px;
+  left: 77px;
+  font-weight: 600;
+  font-size: 36px;
+}
+
+/* Barra superior */
+.barra-rectangulo {
+  width: 100%;
+  height: 100px;
+  background: white;
+  position: absolute;
+  top: 0;
+  left: 0;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  z-index: 10;
+}
+
+.circulo-barra {
+  width: 400px;
+  height: 400px;
+  background: white;
+  position: absolute;
+  top: -100px;
+  left: -25px;
+  border-radius: 50%;
+  z-index: 15;
+}
+
+.logo {
+  width: 202px;
+  height: 202px;
+  position: absolute;
+  top: 39px;
+  left: 75px;
+  z-index: 20;
+}
+
+/* Botones login/signup */
+.btn-login, .btn-signUp {
+  width: 200px;
+  height: 60px;
+  background: linear-gradient(red, orange);
+  position: absolute;
+  top: 20px;
+  border-radius: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+  z-index: 20;
+}
+
+.btn-login:hover, .btn-signUp:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(255, 0, 0, 0.3);
+}
+
+.btn-login { left: 1000px; }
+.btn-signUp { left: 1270px; }
+
+.btn-login span, .btn-signUp span {
+  color: white;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+/* Animación flotante */
+@keyframes flotar {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0); }
+}
