@@ -34,7 +34,7 @@ body {
 
 .seccion-marca {
   width: 50%;
-  background: linear-gradient(135deg, #0f0c29 0%, #24243e 100%);
+  background: url('/assets/fondo.png') center/cover no-repeat;
   display: flex;
   flex-direction: column;
   justify-content: center;
