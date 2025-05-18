@@ -1,0 +1,153 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Archivo', sans-serif;
+}
+
+.contenedor-principal{
+    background: url('/assets/fondo.png') center/cover no-repeat;
+    color: white;
+    padding: 20px;
+    min-height: 100vh;
+}
+    
+.profile-header {
+    color: #ff2121;
+    font-size: 26px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.container {
+    display: flex;
+    gap: 20px;
+    max-width: 100%;
+    width: 100%;
+}
+
+.left-panel {
+    width: 300px;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.right-panel {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.profile-card, .actions-card {
+    background-color: white;
+    border-radius: 15px;
+    padding: 20px;
+    margin-bottom: 20px;
+    color: black;
+}
+
+.actions-card {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.info-card {
+    background-color: white;
+    border-radius: 15px;
+    padding: 20px;
+    color: black;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.profile-image {
+    width: 140px;
+    height: 140px;
+    background-color: #10142d;
+    border-radius: 50%;
+    margin: 0 auto 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.profile-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.username {
+    text-align: center;
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.action-item {
+    display: flex;
+    align-items: center;
+    padding: 15px 0;
+    cursor: pointer;
+}
+
+.action-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(255, 0, 0, 0.3);
+}
+
+.action-item:not(:last-child) {
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.action-icon {
+    margin-right: 15px;
+    width: 24px;
+    height: 24px;
+}
+
+.action-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.action-text {
+    font-weight: bold;
+}
+
+.info-card h2 {
+    font-size: 22px;
+    margin-bottom: 20px;
+}
+
+.info-row {
+    display: flex;
+    margin-bottom: 25px;
+}
+
+.info-label {
+    width: 150px;
+    font-weight: bold;
+}
+
+.info-value {
+    flex: 1;
+    text-align: right;
+    color: #888;
+}
+
+/* Ajuste para pantallas medianas y pequeñas */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+    
+    .left-panel {
+        width: 100%;
+    }
+}

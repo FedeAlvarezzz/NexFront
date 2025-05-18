@@ -2,6 +2,7 @@ import { Routes } from '@angular/router';
 import { InicioComponent } from './pages/inicio/inicio.component';
 import { LoginComponent } from './pages/login/login.component';
 import { RegistroComponent } from './pages/registro/registro.component';
+import { PerfilUsuarioComponent } from './pages/perfil-usuario/perfil-usuario.component';
 import { PerfilComponent } from './pages/perfil/perfil.component';
 import { AdminComponent } from './pages/admin/admin.component';
 import { GestionReportesComponent } from './pages/admin/gestion-reportes/gestion-reportes.component';
@@ -18,6 +19,7 @@ export const routes: Routes = [
    { path: 'inicio', component: InicioComponent },
    { path: 'login', component: LoginComponent },
    { path: 'registro', component: RegistroComponent },
+   { path: 'perfil-usuario', component: PerfilUsuarioComponent },
    { path: 'perfil', component: PerfilComponent },
    { path: 'admin', component: AdminComponent },
    { path: 'gestion-reportes', component: GestionReportesComponent },

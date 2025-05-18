@@ -1,0 +1,45 @@
+<header class="main_menu py-1 px-3 bg-white">
+  <div class="container-fluid">
+    <div class="row align-items-center">
+      <div class="col-12">
+        <nav class="navbar navbar-expand navbar-light justify-content-between">
+          
+          <!-- Logo alineado más a la izquierda -->
+          <a class="navbar-brand d-flex align-items-center" routerLink="/">
+            <img src="assets/nexlogov2.png" alt="logo" class="me-2" style="height: 40px;">
+          </a>
+
+          <!-- Menú normal, sin hamburguesa -->
+          <ul class="navbar-nav ms-auto d-flex align-items-center gap-3">
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/perfil-usuario">Perfil</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/crear-reporte">Crear Reporte</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/mis-reportes">Mis Reportes</a>
+            </li>
+
+            <!-- Notificación con "combo box" -->
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle position-relative" href="#" id="notifDropdown" role="button"
+                 data-bs-toggle="dropdown" aria-expanded="false">
+                Notificación
+                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                  3
+                  <span class="visually-hidden">unread notifications</span>
+                </span>
+              </a>
+              <ul class="dropdown-menu dropdown-menu-end shadow" aria-labelledby="notifDropdown">
+                <li><a class="dropdown-item" href="#">Nueva respuesta a tu reporte</a></li>
+                <li><a class="dropdown-item" href="#">Tu reporte fue aprobado</a></li>
+                <li><a class="dropdown-item" href="#">Mensaje del administrador</a></li>
+              </ul>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+</header>

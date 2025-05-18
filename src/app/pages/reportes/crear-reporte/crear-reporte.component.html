@@ -1,23 +1,51 @@
 <div class="container mt-5">
   <h2>Create New Report</h2>
+
   <form [formGroup]="formularioReporte" (ngSubmit)="crearReporte()">
+
+    <!-- Título -->
     <div class="mb-3">
       <label for="titulo" class="form-label">Title</label>
-      <input type="text" id="titulo" formControlName="titulo" class="form-control" placeholder="Enter the report title" required>
+      <input
+        type="text"
+        id="titulo"
+        formControlName="titulo"
+        class="form-control"
+        placeholder="Enter the report title"
+        required
+      >
     </div>
+
+    <!-- Descripción -->
     <div class="mb-3">
       <label for="descripcion" class="form-label">Description</label>
-      <textarea id="descripcion" formControlName="descripcion" class="form-control" rows="3" placeholder="Enter a detailed description" required></textarea>
+      <textarea
+        id="descripcion"
+        formControlName="descripcion"
+        class="form-control"
+        rows="3"
+        placeholder="Enter a detailed description"
+        required
+      ></textarea>
     </div>
+
+    <!-- Categoría -->
     <div class="mb-3">
       <label for="categoria" class="form-label">Category</label>
-      <select id="categoria" formControlName="categoria" class="form-select" required>
+      <select
+        id="categoria"
+        formControlName="categoria"
+        class="form-select"
+        required
+      >
         <option value="" disabled selected>Select a category</option>
         <option value="Alumbrado Público">Public Lighting</option>
         <option value="Robo">Robbery</option>
         <option value="Mascota Perdida">Lost Pet</option>
       </select>
     </div>
+
+    <!-- Mapa (Ubicación) -->
     <div class="card mb-3">
       <div class="card-header">
         <label for="mapa" class="form-label">Location</label>
@@ -26,10 +54,24 @@
         <div id="mapa" style="height: 400px;"></div>
       </div>
     </div>
+
+    <!-- Imagen -->
     <div class="mb-3">
       <label for="imagen" class="form-label">Image</label>
-      <input type="file" id="imagen" formControlName="imagen" class="form-control" accept="image/*" required>
+      <input
+        type="file"
+        id="imagen"
+        formControlName="imagen"
+        class="form-control"
+        accept="image/*"
+        required
+      >
     </div>
-    <button type="submit" class="btn btn-primary">Create Report</button>
+
+    <!-- Botón -->
+    <button type="submit" class="btn btn-primary">
+      Create Report
+    </button>
+
   </form>
 </div>
