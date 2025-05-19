@@ -11,26 +11,31 @@
       </div>
 
       <div class="actions-card">
-        <div class="action-item">
+
+        <!-- Edit Profile -->
+        <a class="action-item" routerLink='/editar-perfil'>
           <div class="action-icon">
             <img src="assets/edit.png" alt="Editar perfil">
           </div>
           <div class="action-text">Edit Profile</div>
-        </div>
+        </a>
 
-        <div class="action-item">
+        <!-- My Reports -->
+        <a class="action-item" routerLink="/mis-reportes">
           <div class="action-icon">
             <img src="assets/userReport.png" alt="Mis reportes">
           </div>
           <div class="action-text">My Reports</div>
-        </div>
+        </a>
 
-        <div class="action-item">
+        <!-- Delete Account -->
+        <a class="action-item" routerLink="/eliminar-cuenta">
           <div class="action-icon">
             <img src="assets/trash.png" alt="Eliminar cuenta">
           </div>
           <div class="action-text">Delete Account</div>
-        </div>
+        </a>
+
       </div>
     </div>
 
@@ -67,6 +72,8 @@
           <div class="info-label">Password</div>
           <div class="info-value">**************</div>
         </div>
+
+        <button class="save-button">Save Changes</button>
       </div>
     </div>
   </div>

@@ -4,6 +4,7 @@ import { LoginComponent } from './pages/login/login.component';
 import { RegistroComponent } from './pages/registro/registro.component';
 import { PerfilUsuarioComponent } from './pages/perfil-usuario/perfil-usuario.component';
 import { PerfilComponent } from './pages/perfil/perfil.component';
+import { EditarPerfilComponent } from './pages/editar-perfil/editar-perfil.component';
 import { AdminComponent } from './pages/admin/admin.component';
 import { GestionReportesComponent } from './pages/admin/gestion-reportes/gestion-reportes.component';
 import { DetalleReporteComponent } from './pages/reportes/detalle-reporte/detalle-reporte.component';
@@ -21,6 +22,7 @@ export const routes: Routes = [
    { path: 'registro', component: RegistroComponent },
    { path: 'perfil-usuario', component: PerfilUsuarioComponent },
    { path: 'perfil', component: PerfilComponent },
+   { path: 'editar-perfil', component: EditarPerfilComponent },
    { path: 'admin', component: AdminComponent },
    { path: 'gestion-reportes', component: GestionReportesComponent },
    { path: 'detalle-reporte/:id', component: DetalleReporteComponent },

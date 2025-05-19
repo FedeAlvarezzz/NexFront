@@ -29,6 +29,7 @@ export class AppComponent {
     '/perfil-usuario',
     '/crear-reporte',
     '/mis-reportes',
+    '/editar-perfil',
   ];
 
   constructor(private router: Router) {

@@ -6,7 +6,6 @@ header.main_menu {
     z-index: 999;
   }
   
-  
   header .navbar-nav .nav-link,
   header .navbar-brand,
   header .navbar-nav .nav-link.dropdown-toggle {

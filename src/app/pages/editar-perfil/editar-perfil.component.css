@@ -1,0 +1,91 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Archivo', sans-serif;
+}
+
+.contenedor-principal {
+    background: url('/assets/fondo.png') center/cover no-repeat;
+    padding: 20px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.profile-header {
+    color: #ff0000;
+    font-size: 26px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.info-card {
+    background-color: white;
+    border-radius: 15px;
+    padding: 30px;
+    color: black;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.info-card h2 {
+    font-size: 22px;
+    margin-bottom: 30px;
+}
+
+.form-row {
+    margin-bottom: 20px;
+}
+
+.form-label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.form-input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.form-input:focus {
+    outline: none;
+    border-color: #ff2121;
+}
+
+.save-button {
+    background: linear-gradient(to right, #ff2121, #ff8a00);
+    color: white;
+    border: none;
+    border-radius: 25px;
+    padding: 15px 30px;
+    font-size: 16px;
+    cursor: pointer;
+    display: block;
+    margin-left: auto;
+    font-weight: bold;
+    margin-top: 20px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.save-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255, 33, 33, 0.3);
+}
+
+/* Diseño responsive */
+@media (max-width: 768px) {
+    .info-card {
+        padding: 20px;
+    }
+    
+    .save-button {
+        width: 100%;
+    }
+}
