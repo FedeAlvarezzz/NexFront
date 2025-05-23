@@ -8,13 +8,18 @@
       </p>
 
       <div class="code-container">
-        <input type="text" #codeInput class="code-input" maxlength="1" autofocus>
-        <input type="text" #codeInput class="code-input" maxlength="1">
-        <input type="text" #codeInput class="code-input" maxlength="1">
-        <span class="separator">-</span>
-        <input type="text" #codeInput class="code-input" maxlength="1">
-        <input type="text" #codeInput class="code-input" maxlength="1">
-        <input type="text" #codeInput class="code-input" maxlength="1">
+        <input
+          *ngFor="let i of [].constructor(codeLength); let index = index"
+          type="text"
+          class="code-input"
+          maxlength="1"
+          inputmode="numeric"
+          id="code-{{ index }}"
+          (input)="onInput($event, index)"
+          (keydown)="onKeyDown($event, index)"
+          (paste)="onPaste($event)"
+          autofocus="{{ index === 0 }}"
+        />
       </div>
 
       <button class="login-btn">LOGIN</button>
