@@ -1,0 +1,228 @@
+.contenedor-principal {
+    margin: 0;
+    padding: 0;
+    font-family: 'Archivo', sans-serif;
+    background: url('/assets/fondo.png') center/cover no-repeat;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    width: 100%;
+    max-width: 1000px;
+    padding: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.recovery-card {
+    background-color: white;
+    border-radius: 12px;
+    padding: 40px;
+    width: 100%;
+    max-width: 600px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    position: relative;
+}
+
+.panel {
+    transition: all 0.3s ease-in-out;
+}
+
+.panel.hidden {
+    opacity: 0;
+    pointer-events: none;
+    position: absolute;
+    top: 40px;
+    left: 40px;
+    right: 40px;
+}
+
+.title {
+    color: #ff0000;
+    font-size: 36px;
+    margin-bottom: 20px;
+    font-weight: 600;
+    font-family: 'Archivo', sans-serif;
+}
+
+.instruction {
+    color: #1a1b3c;
+    font-size: 18px;
+    margin-bottom: 40px;
+    line-height: 1.5;
+    padding: 0 20px;
+}
+
+/* Email Panel Styles */
+.email-input {
+    width: 100%;
+    max-width: 400px;
+    height: 60px;
+    background-color: #f5f5f5;
+    border: 2px solid #ddd;
+    border-radius: 15px;
+    font-size: 18px;
+    text-align: center;
+    color: #1a1b3c;
+    outline: none;
+    margin-bottom: 40px;
+    font-family: 'Archivo', sans-serif;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.email-input:focus {
+    border-color: #ff0000;
+    box-shadow: 0 0 10px rgba(255, 0, 0, 0.2);
+}
+
+.email-input::placeholder {
+    color: #999;
+    font-family: 'Archivo', sans-serif;
+}
+
+/* Code Panel Styles */
+.code-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 40px;
+    gap: 10px;
+}
+
+.code-input {
+    width: 60px;
+    height: 80px;
+    background-color: #f5f5f5;
+    border: 1px solid #ddd;
+    border-radius: 15px;
+    font-size: 36px;
+    text-align: center;
+    color: #1a1b3c;
+    outline: none;
+    font-family: 'Archivo', sans-serif;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.code-input:focus {
+    border-color: #ff0000;
+    box-shadow: 0 0 5px rgba(255, 0, 0, 0.3);
+}
+
+/* Button Styles */
+.action-btn {
+    width: 300px;
+    height: 60px;
+    background-color: #10143B;
+    color: white;
+    border: none;
+    border-radius: 30px;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+    text-transform: uppercase;
+    font-family: 'Archivo', sans-serif;
+}
+
+.action-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(16, 20, 59, 0.3);
+}
+
+.action-btn:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+.back-btn {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background: none;
+    border: none;
+    color: #ff0000;
+    font-size: 30px;
+    cursor: pointer;
+    font-weight: 600;
+    font-family: 'Archivo', sans-serif;
+    transition: transform 0.3s;
+}
+
+.back-btn:hover {
+    transform: scale(1.1);
+}
+
+/* Loading animation */
+.loading {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 3px solid #ffffff;
+    border-radius: 50%;
+    border-top-color: transparent;
+    animation: spin 1s ease-in-out infinite;
+    margin-right: 10px;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .recovery-card {
+        padding: 30px 15px;
+    }
+    
+    .title {
+        font-size: 28px;
+    }
+    
+    .instruction {
+        font-size: 16px;
+        padding: 0 10px;
+    }
+    
+    .email-input {
+        max-width: 90%;
+        height: 50px;
+        font-size: 16px;
+    }
+    
+    .code-input {
+        width: 45px;
+        height: 60px;
+        font-size: 28px;
+    }
+    
+    .action-btn {
+        width: 80%;
+        height: 50px;
+        font-size: 16px;
+    }
+
+    .back-btn {
+        font-size: 20px;
+    }
+}
+
+/* Para pantallas muy pequeñas */
+@media (max-width: 360px) {
+    .code-input {
+        width: 35px;
+        height: 50px;
+        font-size: 22px;
+    }
+    
+    .email-input {
+        height: 45px;
+        font-size: 15px;
+    }
+}

@@ -30,6 +30,7 @@ export class AppComponent {
     '/crear-reporte',
     '/mis-reportes',
     '/editar-perfil',
+    '/detalle-reporte'
   ];
 
   constructor(private router: Router) {
