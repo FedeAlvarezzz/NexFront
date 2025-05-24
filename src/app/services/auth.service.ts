@@ -1,73 +1,39 @@
 import { Injectable } from '@angular/core';
-import { Router } from '@angular/router';
-
-
-const TOKEN_KEY = "AuthToken";
-
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { MensajeDTO } from '../interface/mensaje-dto';
+import { LoginDTO } from '../interface/login-dto';
+import { CodVerificacionDTO } from '../interface/cod-verificacion-dto';
+import { ActivarUsuarioDTO } from '../interface/activar-usuario-dto';
+import { ActualizarContrasenaDTO } from '../interface/actualizar-contrasena-dto';
 
 @Injectable({
- providedIn: 'root'
+  providedIn: 'root'
 })
-export class TokenService {
+export class AuthService {
 
- constructor(private router: Router) { }
+  private url = "http://localhost:8080/api/auth";
 
- public setToken(token: string) {
-  window.sessionStorage.removeItem(TOKEN_KEY);
-  window.sessionStorage.setItem(TOKEN_KEY, token);
- }
+  constructor(private http: HttpClient) { }
 
- public getToken(): string | null {
-  return sessionStorage.getItem(TOKEN_KEY);
- }
-
- public isLogged(): boolean {
-  if (this.getToken()) {
-    return true;
+  public iniciarSesion(loginDTO: LoginDTO): Observable<MensajeDTO> {
+    return this.http.post<MensajeDTO>(`${this.url}/login`, loginDTO);
   }
-  return false;
- }
 
- public login(token: string) {
-  this.setToken(token);
-  this.router.navigate(["/"]);
-}
-
-public logout() {
-  window.sessionStorage.clear();
-  this.router.navigate(["/login"]);
-}
-
-private decodePayload(token: string): any {
-  const payload = token!.split(".")[1];
-  const base64 = payload.replace(/-/g, '+').replace(/_/g, '/');
-  const decodedPayload = atob(base64);
-  return JSON.parse(decodedPayload);
- }
-
- public getIdUsuario(): string {
-  const token = this.getToken();
-  if (token) {
-    const values = this.decodePayload(token);
-    return values.sub;
+  public verificarUsuario(codVerificacionDTO: CodVerificacionDTO): Observable<MensajeDTO> {
+    return this.http.post<MensajeDTO>(`${this.url}/verificar-usuario`, codVerificacionDTO);
   }
-  return "";
- }
- 
- 
- public getRol(): string {
-  const token = this.getToken();
-  if (token) {
-    const values = this.decodePayload(token);
-    return values.rol;
+
+  public actualizarContrasena(actualizarContrasenaDTO: ActualizarContrasenaDTO): Observable<MensajeDTO> {
+    return this.http.put<MensajeDTO>(`${this.url}/actualizar-contrasena`, actualizarContrasenaDTO);
   }
-  return "";
- }
 
- 
-
-
+  public activarUsuario(activarUsuarioDTO: ActivarUsuarioDTO): Observable<MensajeDTO> {
+    return this.http.post<MensajeDTO>(`${this.url}/activar-usuario`, activarUsuarioDTO);
+  }
+  
+  public recuperarUsuario(email: string): Observable<MensajeDTO> {
+    return this.http.post<MensajeDTO>(`${this.url}/recuperar-usuario`, email);
+  }
+  
 }
-
-
- 

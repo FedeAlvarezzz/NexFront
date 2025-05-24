@@ -1,72 +1,37 @@
-import { Injectable } from '@angular/core';
-import { CategoriaDTO } from '../interface/categoria-dto';
+import { Injectable } from "@angular/core";
+import { CategoriaDTO } from "../interface/categoria-dto";
+import { HttpClient } from "@angular/common/http";
+import { Observable } from "rxjs";
+import { MensajeDTO } from "../interface/mensaje-dto";
 
 @Injectable({
   providedIn: 'root'
 })
 export class CategoriasService {
 
-  categorias: CategoriaDTO[] = [];
+  private url = "http://localhost:8080/api/categorias";
 
-  constructor() {
-    this.categorias;
-    this.crearCategoriasPrueba();
+  constructor(private http: HttpClient) {
   }
 
   public listar() {
-    return this.categorias;
+    return this.http.get<CategoriaDTO[]>(`${this.url}/listar`);
   }
 
   public crear(crearCategoriaDTO: CategoriaDTO) {
-    this.categorias.push(crearCategoriaDTO);
+    return this.http.post<MensajeDTO>(`${this.url}/crear`, crearCategoriaDTO);
   }
 
-  public obtener(id: string): CategoriaDTO | undefined {
-    return this.categorias.find(categoria => categoria.id == id);
+  public obtener(id: string): Observable<CategoriaDTO> {
+    return this.http.get<CategoriaDTO>(`${this.url}/obtener/${id}`);
   }
 
   public eliminar(id: string) {
-    this.categorias = this.categorias.filter(categoria => categoria.id != id);
+    return this.http.delete<MensajeDTO>(`${this.url}/eliminar/${id}`);
   }
 
   public editar(id: string, editarCategoriaDTO: CategoriaDTO) {
-    const indice = this.categorias.findIndex(categoria => categoria.id == id);
-    if (indice != -1) {
-      this.categorias[indice] = editarCategoriaDTO;
-    }
-  }
-
-  public crearCategoriasPrueba() {
-    this.categorias.push({
-      id: '1',
-      titulo: 'Alumbrado Público',
-      descripcion: 'Reportes relacionados con el alumbrado público en la ciudad.'
-    });
-
-    this.categorias.push({
-      id: '2',
-      titulo: 'Robo',
-      descripcion: 'Reportes de robos o hurtos en la zona.'
-    });
-
-    this.categorias.push({
-      id: '3',
-      titulo: 'Mascota Perdida',
-      descripcion: 'Reportes de mascotas perdidas en la comunidad.'
-    });
-
-    this.categorias.push({
-      id: '4',
-      titulo: 'Vandalismo',
-      descripcion: 'Reportes de vandalismo o daños a la propiedad pública.'
-    });
-
-    this.categorias.push({
-      id: '5',
-      titulo: 'Incendio',
-      descripcion: 'Reportes de incendios en la zona.'
-    });
-
+    return this.http.put<MensajeDTO>(`${this.url}/editar/${id}`, editarCategoriaDTO);
   }
 
 }
