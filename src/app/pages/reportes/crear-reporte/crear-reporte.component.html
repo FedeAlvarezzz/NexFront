@@ -12,10 +12,9 @@
     <div class="mb-3">
       <label for="categoria" class="form-label">Category</label>
       <select id="categoria" formControlName="categoria" class="form-select" required>
-        <option value="" disabled selected>Select a category</option>
-        <option value="Alumbrado Público">Public Lighting</option>
-        <option value="Robo">Robbery</option>
-        <option value="Mascota Perdida">Lost Pet</option>
+        @for (categoria of categoriaService.listar(); track $index){
+          <option value="{{categoria.titulo}}">{{categoria.descripcion}}</option>
+        }
       </select>
     </div>
     <div class="card mb-3">

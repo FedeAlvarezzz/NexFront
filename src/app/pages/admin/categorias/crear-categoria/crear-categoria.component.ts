@@ -4,18 +4,21 @@ import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angula
 import Swal from 'sweetalert2';
 import { CommonModule } from '@angular/common';
 import { CategoriaDTO } from '../../../../interface/categoria-dto';
-
+import { CategoriasService } from '../../../../services/categorias.service';
 @Component({
   selector: 'app-crear-categoria',
   standalone: true,
-  imports: [ReactiveFormsModule, CommonModule],
+  imports: [ReactiveFormsModule],
   templateUrl: './crear-categoria.component.html',
   styleUrl: './crear-categoria.component.css'
 })
 export class CrearCategoriaComponent {
   formularioCategoria: FormGroup;
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder,
+    private categoriaService: CategoriasService
+  ) {
+    
     this.formularioCategoria = this.fb.group({
       titulo: ['', Validators.required],
       descripcion: ['', Validators.required]
@@ -30,6 +33,7 @@ export class CrearCategoriaComponent {
         descripcion: this.formularioCategoria.value.descripcion
       };
       
+      this.categoriaService.crear(nuevo);
       this.formularioCategoria.reset();
       Swal.fire('Categoría creada', 'La categoría fue creada exitosamente', 'success');
     } else {
