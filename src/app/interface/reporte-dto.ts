@@ -7,6 +7,8 @@ export interface ReporteDTO {
     categoria: string;
     estadoActual: string;
     ubicacion: UbicacionDTO;
+    ciudad: string;
+    votosImportancia: number;
  }
  
  

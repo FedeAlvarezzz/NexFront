@@ -2,10 +2,14 @@ import { Routes } from '@angular/router';
 import { InicioComponent } from './pages/inicio/inicio.component';
 import { LoginComponent } from './pages/login/login.component';
 import { RegistroComponent } from './pages/registro/registro.component';
-import { PerfilComponent } from './pages/perfil/perfil.component';
+import { HomeUsuarioComponent } from './pages/home-usuario/home-usuario.component';
+import { PerfilUsuarioComponent } from './pages/perfil-usuario/perfil-usuario.component';
+import { EditarPerfilComponent } from './pages/editar-perfil/editar-perfil.component';
+import { RecuperarComponent } from './pages/recuperar/recuperar.component';
 import { AdminComponent } from './pages/admin/admin.component';
 import { GestionReportesComponent } from './pages/admin/gestion-reportes/gestion-reportes.component';
 import { DetalleReporteComponent } from './pages/reportes/detalle-reporte/detalle-reporte.component';
+import { ComentariosComponent } from './pages/comentarios/comentarios.component';
 import { CrearReporteComponent } from './pages/reportes/crear-reporte/crear-reporte.component';
 import { CodigoConfirmacionComponent } from './pages/codigo-confirmacion/codigo-confirmacion.component';
 import { HomeAdminComponent } from './pages/admin/home-admin/home-admin.component';
@@ -20,7 +24,11 @@ export const routes: Routes = [
    { path: 'inicio', component: InicioComponent },
    { path: 'login', component: LoginComponent },
    { path: 'registro', component: RegistroComponent },
-   { path: 'perfil', component: PerfilComponent },
+   { path: 'home-usuario', component: HomeUsuarioComponent },
+   { path: 'perfil-usuario', component: PerfilUsuarioComponent },
+   { path: 'editar-perfil', component: EditarPerfilComponent },
+   { path: 'recuperar', component: RecuperarComponent },
+   { path: 'comentarios', component: ComentariosComponent},
    { path: 'admin', component: AdminComponent },
    { path: 'gestion-reportes', component: GestionReportesComponent },
    { path: 'detalle-reporte/:id', component: DetalleReporteComponent },

@@ -1,55 +1,55 @@
-<div class="container pt-5 pb-5">
-    <h5 class="mb-0">
-      <i class="fa-solid fa-bell me-3"></i>Gestión de Reportes
-    </h5>
-    <hr />
-    <div class="card-body">
-        <div class="mb-3">
-            <button type="button" routerLink="/crear-reporte" class="btn btn-success me-2">
-                <i class="fa-solid fa-plus me-1"></i> Crear
-            </button>
-
-            <button type="button" class="btn btn-danger" (click)="confirmarEliminacion()" [disabled]="seleccionados.length == 0">
-                <i class="fa-solid fa-trash me-1"></i> Eliminar {{ textoBtnEliminar }}
+<div class="contenedor-principal">
+    <div class="container">
+        <div class="management-card">
+            <div class="header-section">
+                <h2 class="page-title">Manage Reports</h2>
+                <div class="divider"></div>
+            </div>
+            
+            <div class="actions-section">
+                <button type="button" routerLink="/crear-reporte" class="btn btn-create">Create</button>
+                <button type="button" class="btn btn-delete" (click)="confirmarEliminacion()" [disabled]="seleccionados.length == 0">
+                    Delete {{ textoBtnEliminar }}
                 </button>
-        </div>
- 
- 
-        <div class="table-responsive">
-            <table class="table table-striped table-hover table-responsive">
-                <thead>
-                  <tr>
-                    <th></th> <!-- Celda vacía para checkboxes -->
-                    <th>ID</th>
-                    <th>Título</th>
-                    <th>Estado Actual</th>
-                    <th>Imagen</th>
-                    <th>Ciudad</th>
-                    <th>Fecha</th>
-                    <th></th>
-                  </tr>
-                </thead>
-                <tbody class="table-group-divider">
-                  @for (item of reportes; track $index) {
-                    <tr>
-                      <!-- Checkbox de selección -->
-                      <td>
-                        <input #check class="form-check-input" type="checkbox"
-                               (change)="seleccionar(item, check.checked)" />
-                      </td>
-                      <td><p>{{item.id}}</p></td>
-                      <td><p>{{item.titulo}}</p></td>
-                      <td><p>{{item.estadoActual}}</p></td>
-                      <td>
-                        <img [src]="item.imagen" [alt]="item.titulo" class="img-fluid" style="max-width: 100px;">
-                      </td>
-                      <td><p>{{item.fecha}}</p></td>
-                      <td><a routerLink="/detalle-reporte/{{item.id}}">Ver detalle</a></td>
-                    </tr>
-                  }
-                </tbody>
-              </table>
-              
+            </div>
+
+            <div class="table-container">
+                <table class="custom-table">
+                    <thead>
+                        <tr>
+                            <th class="checkbox-col"></th>
+                            <th class="id-col">ID</th>
+                            <th class="title-col">Title</th>
+                            <th class="status-col">Status</th>
+                            <th class="image-col">Image</th>
+                            <th class="date-col">Date</th>
+                            <th class="city-col">City</th>  
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @for (item of reportes; track $index) {
+                            <tr class="table-row">
+                                <td class="checkbox-cell">
+                                    <input #check class="custom-checkbox" type="checkbox"
+                                           (change)="seleccionar(item, check.checked)" />
+                                </td>
+                                <td class="id-cell">{{item.id}}</td>
+                                <td class="title-cell">{{item.titulo}}</td>
+                                <td class="status-cell">
+                                    <span class="status-badge">{{item.estadoActual}}</span>
+                                </td>
+                                <td class="image-cell">
+                                    <img [src]="item.imagen" [alt]="item.titulo" class="report-image">
+                                </td>
+                                <td class="date-cell">{{item.fecha}}</td>
+                                <td class="actions-cell">
+                                    <a routerLink="/detalle-reporte/{{item.id}}" class="detail-link">Show Details</a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
- </div>
+</div>

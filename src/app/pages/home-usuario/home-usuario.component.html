@@ -1,0 +1,104 @@
+<div class="principal-container">
+  <!-- Header de la página -->
+  <div class="header-section">
+    <div class="title-container">
+      <h1 class="page-title">Community Reports</h1>
+      <p class="page-subtitle">Community Created Reports</p>
+    </div>
+    
+    <div class="search-container">
+      <input 
+        type="text" 
+        class="search-input" 
+        placeholder="Search"
+        [(ngModel)]="terminoBusqueda"
+        (input)="filtrarReportes()">
+      <button class="search-button" (click)="buscar()">
+        <img src="/assets/search.png" alt="Search" class="search-icon">
+      </button>
+    </div>
+  </div>
+  
+  <!-- Grid de reportes -->
+  <div *ngIf="!cargando && !error && reportesFiltrados.length > 0" class="reportes-grid">
+    <div 
+      *ngFor="let reporte of reportesFiltrados" 
+      class="reporte-card"
+      (click)="verDetalle(reporte.id)"
+      [attr.data-categoria]="reporte.categoria">
+      
+      <!-- Imagen del reporte -->
+      <div class="card-image-container">
+        <img 
+          [src]="reporte.imagen || obtenerImagenPorDefecto()" 
+          [alt]="reporte.titulo"
+          (error)="onImageError($event)"
+          class="card-image">
+        
+        <!-- Badge de categoría -->
+        <div class="categoria-badge" [ngClass]="reporte.categoria?.toLowerCase()">
+          {{ reporte.categoria }}
+        </div>
+      </div>
+
+      <!-- Contenido del card -->
+      <div class="card-content">
+        <!-- Título -->
+        <h3 class="card-title">{{ reporte.titulo }}</h3>
+        
+        <!-- Descripción (truncada) -->
+        <p class="card-description">
+          {{ reporte.descripcion.length > 100 ? 
+             (reporte.descripcion | slice:0:100) + '...' : 
+             reporte.descripcion }}
+        </p>
+
+        <!-- Información adicional -->
+        <div class="card-info">
+          <!-- Ubicación -->
+          <div class="info-item">
+            <i class="icon-location"></i>
+            <span class="info-text">{{ formatearUbicacion(reporte.ubicacion) }}</span>
+          </div>
+
+          <!-- Fecha -->
+          <div class="info-item">
+            <i class="icon-calendar"></i>
+            <span class="info-text">{{ formatearFecha(reporte.fecha) }}</span>
+          </div>
+
+          <!-- Estado del reporte (si existe) -->
+          <div *ngIf="reporte.estadoActual" class="info-item">
+            <i class="icon-status"></i>
+            <span class="info-text estado" [ngClass]="reporte.estadoActual?.toLowerCase()">
+              {{ reporte.estadoActual }}
+            </span>
+          </div>
+        </div>
+
+        <!-- Footer del card -->
+        <div class="card-footer">
+          <!-- Contador de votos (si existe) -->
+          <div *ngIf="reporte.votosImportancia !== undefined" class="votos-container">
+            <i class="icon-thumbs-up"></i>
+            <span>{{ reporte.votosImportancia }} votos</span>
+          </div>
+
+          <!-- Indicador de más información -->
+          <div class="ver-mas">
+            <span>Show Details</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Estado vacío -->
+  <div *ngIf="!cargando && !error && reportesFiltrados.length === 0" class="empty-state">
+    <div class="empty-card">
+
+      <h3>{{ terminoBusqueda ? 'No Results Found' : 'No Created Reports' }}</h3>
+      <p>{{ terminoBusqueda ? 'Try other search terms' : 'No reports have been created on the platform yet.' }}</p>
+    </div>
+  </div>
+</div>

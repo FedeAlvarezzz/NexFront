@@ -35,9 +35,9 @@ export class CrearCategoriaComponent {
       
       this.categoriaService.crear(nuevo);
       this.formularioCategoria.reset();
-      Swal.fire('Categoría creada', 'La categoría fue creada exitosamente', 'success');
+      Swal.fire('Category Created', 'The category was successfully created', 'success');
     } else {
-      Swal.fire('Formulario incompleto', 'Por favor completa todos los campos', 'warning');
+      Swal.fire('Incomplete Form', 'Please complete all fields', 'warning');
     }
   }
 }

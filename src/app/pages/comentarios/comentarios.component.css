@@ -1,0 +1,394 @@
+/* comments.component.scss */
+
+.comments-container {
+  max-width: 1024px;
+  margin: 0 auto;
+  padding: 24px;
+  background-color: #f8fafc;
+  min-height: 100vh;
+}
+
+/* Header Card */
+.header-card {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  padding: 24px;
+  margin-bottom: 24px;
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.header-title {
+  font-size: 24px;
+  font-weight: bold;
+  color: #1f2937;
+  display: flex;
+  align-items: center;
+  margin: 0;
+
+  .icon-comment {
+    margin-right: 12px;
+    color: #2563eb;
+    font-size: 28px;
+  }
+}
+
+.btn-back {
+  display: flex;
+  align-items: center;
+  padding: 8px 16px;
+  color: #6b7280;
+  background: transparent;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s;
+
+  &:hover {
+    color: #1f2937;
+    background-color: #f3f4f6;
+  }
+
+  .icon-arrow-left {
+    margin-right: 8px;
+    font-size: 16px;
+  }
+}
+
+/* Report Info */
+.report-info {
+  background-color: #eff6ff;
+  border: 1px solid #bfdbfe;
+  border-radius: 6px;
+  padding: 16px;
+}
+
+.report-title {
+  font-weight: 600;
+  color: #1e40af;
+  margin: 0 0 4px 0;
+}
+
+.report-description {
+  color: #2563eb;
+  font-size: 14px;
+  margin: 0 0 8px 0;
+}
+
+.report-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.status-badge {
+  display: inline-block;
+  padding: 4px 8px;
+  border-radius: 9999px;
+  font-size: 12px;
+  font-weight: 500;
+
+  &.status-completed {
+    background-color: #dcfce7;
+    color: #166534;
+  }
+
+  &.status-in-progress {
+    background-color: #fef3c7;
+    color: #92400e;
+  }
+
+  &.status-pending {
+    background-color: #f3f4f6;
+    color: #374151;
+  }
+}
+
+.report-id {
+  font-size: 14px;
+  color: #2563eb;
+}
+
+.error-message {
+  background-color: #fef2f2;
+  border: 1px solid #fecaca;
+  border-radius: 6px;
+  padding: 16px;
+
+  p {
+    color: #991b1b;
+    margin: 0;
+  }
+}
+
+/* Comments Section */
+.comments-section {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  padding: 24px;
+  margin-bottom: 24px;
+}
+
+.section-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #1f2937;
+  margin: 0 0 16px 0;
+  display: flex;
+  align-items: center;
+
+  i {
+    margin-right: 8px;
+    color: #059669;
+  }
+}
+
+/* Loading */
+.loading-container {
+  display: flex;
+  justify-content: center;
+  padding: 32px;
+}
+
+.spinner {
+  width: 32px;
+  height: 32px;
+  border: 2px solid #e5e7eb;
+  border-top: 2px solid #2563eb;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* No Comments */
+.no-comments {
+  text-align: center;
+  padding: 32px;
+  color: #6b7280;
+
+  .icon-comment-large {
+    font-size: 48px;
+    color: #d1d5db;
+    margin-bottom: 12px;
+  }
+
+  p {
+    margin: 0 0 4px 0;
+  }
+
+  .subtitle {
+    font-size: 14px;
+  }
+}
+
+/* Comments List */
+.comments-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.comment-item {
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 16px;
+  transition: background-color 0.2s;
+
+  &:hover {
+    background-color: #f9fafb;
+  }
+}
+
+.comment-content {
+  display: flex;
+  gap: 12px;
+}
+
+.comment-avatar {
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  background-color: #eff6ff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .icon-user {
+    color: #2563eb;
+    font-size: 20px;
+  }
+}
+
+.comment-body {
+  flex: 1;
+}
+
+.comment-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.comment-author {
+  font-weight: 500;
+  color: #1f2937;
+  margin: 0;
+}
+
+.comment-date {
+  display: flex;
+  align-items: center;
+  font-size: 12px;
+  color: #6b7280;
+
+  .icon-calendar {
+    margin-right: 4px;
+  }
+}
+
+.comment-text {
+  color: #374151;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Add Comment Section */
+.add-comment-section {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  padding: 24px;
+}
+
+.comment-form {
+  margin-top: 16px;
+}
+
+.form-group {
+  margin-bottom: 16px;
+}
+
+.comment-textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-family: inherit;
+  font-size: 14px;
+  resize: vertical;
+  min-height: 100px;
+  
+  &:focus {
+    outline: none;
+    border-color: #2563eb;
+    box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.2);
+  }
+
+  &:disabled {
+    background-color: #f9fafb;
+    cursor: not-allowed;
+  }
+}
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.btn-submit {
+  display: flex;
+  align-items: center;
+  background-color: #2563eb;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 6px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+
+  &:hover:not(:disabled) {
+    background-color: #1d4ed8;
+  }
+
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.5);
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  .btn-spinner {
+    width: 16px;
+    height: 16px;
+    border: 2px solid transparent;
+    border-top: 2px solid white;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-right: 8px;
+  }
+
+  .icon-send {
+    margin-right: 8px;
+    font-size: 16px;
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .comments-container {
+    padding: 16px;
+  }
+
+  .header-content {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .report-footer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .comment-content {
+    flex-direction: column;
+  }
+
+  .comment-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+}
+
+/* Track by function helper */
+.comment-item {
+  /* Smooth animations for list updates */
+  transition: all 0.3s ease;
+}
+
+.icon-comment::before { content: "💬"; }
+.icon-arrow-left::before { content: "←"; }
+.icon-comment-large::before { content: "💬"; }
+.icon-user::before { content: "👤"; }
+.icon-calendar::before { content: "📅"; }
+.icon-edit::before { content: "✏️"; }
+.icon-send::before { content: "📤"; }

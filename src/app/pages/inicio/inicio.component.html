@@ -1,4 +1,4 @@
-<body>
+<div class="contenedor-principal">
   <div class="v272_3">
   <div class="fondo"></div>
 
@@ -9,7 +9,9 @@
     <img src="assets/ambulancia.png" alt="Ambulancia" class="imagen-circular img-ambulancia" />
   </div>
 
-  <div class="btnGetStarted"><span>GET STARTED</span></div>
+  <div class="btnGetStarted" [routerLink]="['/registro']">
+  <span>GET STARTED</span>
+  </div>
 
   <span class="texto-inicial">
     At NEX, we believe that safety starts with awareness and action. Our platform empowers you to report incidents,
@@ -26,7 +28,11 @@
   <div class="circulo-barra"></div>
   <img src="assets/nexlogo.png" alt="NEX Logo" class="logo" />
 
-  <div class="btn-login"><span>LOGIN</span></div>
-  <div class="btn-signUp"><span>SIGN UP</span></div>
+  <div class="btn-login" [routerLink]="['/login']">
+  <span>LOGIN</span>
+  </div>
+  
+  <div class="btn-signUp" [routerLink]="['/registro']">
+  <span>SIGN UP</span></div>
+  </div>
 </div>
-</body>

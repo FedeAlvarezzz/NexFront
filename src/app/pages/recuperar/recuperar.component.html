@@ -1,1 +1,59 @@
-<p>recuperar works!</p>
+<div class="contenedor-principal">
+  <div class="container">
+    <div class="recovery-card">
+      <!-- Email Panel -->
+      <div class="panel" [class.hidden]="currentPanel !== 'email'">
+        <h1 class="title"> Account Recovery</h1>
+        <p class="instruction">
+          Enter your email address and we'll send you a verification code to reset your password.
+        </p>
+        <input 
+          type="email" 
+          class="email-input" 
+          [(ngModel)]="email"
+          placeholder="email@example.com"
+          (keypress)="onEmailKeyPress($event)"
+          #emailInput
+        />
+        <button 
+          class="action-btn" 
+          [disabled]="isLoading"
+          (click)="sendCode()"
+        >
+          <span *ngIf="isLoading" class="loading"></span>
+          {{ isLoading ? 'SENDING...' : 'SEND CODE' }}
+        </button>
+      </div>
+
+      <!-- Code Panel -->
+      <div class="panel" [class.hidden]="currentPanel !== 'code'">
+        <button class="back-btn" (click)="goBack()"> ← </button>
+        <h1 class="title">Código de Verificación</h1>
+        <p class="instruction">
+          {{ codeInstruction }}
+        </p>
+        <div class="code-container">
+          <input 
+            *ngFor="let digit of codeDigits; let i = index"
+            type="text" 
+            class="code-input" 
+            maxlength="1"
+            [value]="codeDigits[i]"
+            (input)="onCodeInput($event, i)"
+            (keydown)="onCodeKeyDown($event, i)"
+            (paste)="onCodePaste($event)"
+            [id]="'code-' + i"
+          />
+        </div>
+        <button 
+          class="action-btn" 
+          [disabled]="isVerifying"
+          (click)="changePassword()"
+        >
+          <span *ngIf="isVerifying" class="loading"></span>
+          {{ isVerifying ? 'VERIFICANDO...' : 'CAMBIAR CONTRASEÑA' }}
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

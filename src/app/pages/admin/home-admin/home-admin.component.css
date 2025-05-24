@@ -1,8 +1,6 @@
-body{
+.contenedor-principal{
     background: url('/assets/fondo.png') center/cover no-repeat;
-}
-.container {
-    margin-top: 5rem;   
+    height: 90%;
 }
 
 h1 {
@@ -16,10 +14,10 @@ h1 {
 .row {
     display: flex;
     justify-content: space-around;
-    
 }
 
 .col-md-4 {
+    background-color: #141134;
     flex: 0 0 30%;
     max-width: 30%;
     margin-bottom: 2rem;
@@ -30,6 +28,7 @@ h1 {
     border-radius: 0.5rem;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s, box-shadow 0.3s;
+    min-height: 200px;
 }
 
 .card:hover {

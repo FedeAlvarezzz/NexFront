@@ -1,3 +1,8 @@
-<app-header *ngIf="mostrarLayout"></app-header>
+<!-- Barra de navegación para Administrador -->
+<app-header *ngIf="mostrarBarraAdmin"></app-header>
+
+<!-- Barra de navegación para Usuario -->
+<app-header-usuario *ngIf="mostrarBarraUsuario"></app-header-usuario>
+
+<!-- Contenido principal de la aplicación -->
 <router-outlet></router-outlet>
-<app-footer *ngIf="mostrarLayout"></app-footer>

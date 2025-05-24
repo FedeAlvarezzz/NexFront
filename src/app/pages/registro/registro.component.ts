@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ReactiveFormsModule, FormBuilder, FormGroup, Validators, AbstractControlOptions } from '@angular/forms';
+import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { RegistroDTO } from '../../interface/registro-dto';
 import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
 import { UsuarioService } from '../../services/usuario.service';
 import Swal from 'sweetalert2';
+import { MensajeDTO } from '../../interface/mensaje-dto';
 
 @Component({
   selector: 'app-registro',
@@ -26,18 +27,7 @@ export class RegistroComponent {
       direccion: ['', Validators.required],
       telefono: ['', Validators.required]
 
-    },
-     // { validators: this.passwordsMatchValidator } as AbstractControlOptions
-    );
-  }
-
-  passwordsMatchValidator(formGroup: FormGroup) {
-    const password = formGroup.get('password')?.value;
-    const confirmarPassword = formGroup.get('confirmaPassword')?.value;
-
-
-    // Si las contraseñas no coinciden, devuelve un error, de lo contrario, null
-    return password == confirmarPassword ? null : { passwordsMismatch: true };
+    });
   }
 
   public registrar() {
@@ -58,7 +48,7 @@ export class RegistroComponent {
     console.log("Datos enviados al backend:", registro);
   
     this.usuarioService.registrarUsuario(registro).subscribe({
-      next: (data) => { 
+      next: (data: MensajeDTO) => { 
         console.log('Respuesta del backend:', data);
   
         Swal.fire({
@@ -72,7 +62,7 @@ export class RegistroComponent {
           }
         });
       },
-      error: (error) => {
+      error: (error: any) => {
         console.error("Error al registrar:", error);
         Swal.fire({
           title: 'Error',

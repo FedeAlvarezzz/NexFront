@@ -33,16 +33,16 @@ export class GestionReportesComponent {
   }
   public confirmarEliminacion() {
     Swal.fire({
-      title: "Estás seguro?",
-      text: "Esta acción cambiará el estado de los reportes a Eliminados.",
+      title: "You are sure?",
+      text: "This action will change the status of the reports to Deleted.",
       icon: "error",
       showCancelButton: true,
-      confirmButtonText: "Confirmar",
-      cancelButtonText: "Cancelar",
+      confirmButtonText: "Confirm",
+      cancelButtonText: "Cancel",
     }).then((result) => {
       if (result.isConfirmed) {
         this.eliminarReportes();
-        Swal.fire("Eliminados!", "Los reportes seleccionados han sido eliminados.", "success");
+        Swal.fire("Eliminated!", "The selected reports have been deleted.", "success");
       }
     });
    }
@@ -62,7 +62,7 @@ export class GestionReportesComponent {
     const tam = this.seleccionados.length;
 
     if (tam != 0) {
-      this.textoBtnEliminar = tam === 1 ? "1 elemento" : `${tam} elementos`;
+      this.textoBtnEliminar = tam === 1 ? "1 report" : `${tam} reports`;
     } else {
       this.textoBtnEliminar = "";
     }

@@ -1,12 +1,9 @@
+
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-import { MensajeDTO } from '../interface/mensaje-dto';
-import { LoginDTO } from '../interface/login-dto';
-import { RegistroDTO } from '../interface/registro-dto';
 
 @Injectable({
-  providedIn: 'root'
+ providedIn: 'root'
 })
 export class UsuarioService {
 

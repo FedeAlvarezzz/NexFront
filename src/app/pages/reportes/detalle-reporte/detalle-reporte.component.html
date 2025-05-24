@@ -1,1 +1,83 @@
-<p>{{reporte | json}}</p>
+<div class="detalle-reporte-container" *ngIf="reporte">
+  <div class="info-card">
+    <!-- Título Principal -->
+    <div class="reporte-titulo">
+      <h1>{{ reporte.titulo }}</h1>
+    </div>
+
+    <!-- Imagen del Reporte -->
+    <div class="reporte-imagen-principal">
+      <img [src]="reporte.imagen" [alt]="reporte.titulo" class="imagen-reporte" />
+    </div>
+
+    <!-- Información Básica -->
+    <div class="reporte-info-basica">
+      <div class="info-item">
+        <span class="info-label">City:</span>
+        <span class="info-valor">{{ reporte.ciudad }}</span>
+      </div>
+      <div class="info-item">
+        <span class="info-label">Category:</span>
+        <span class="info-valor">{{ reporte.categoria }}</span>
+      </div>
+      <div class="info-item">
+        <span class="info-label">Date:</span>
+        <span class="info-valor">{{ reporte.fecha | date: 'dd/MM/yyyy HH:mm' }}</span>
+      </div>
+    </div>
+
+    <!-- Contador de Votos y Botón Votar -->
+    <div class="reporte-votos">
+      <div class="contador-votos">
+        <span class="votos-numero">{{ reporte.votosImportancia}}</span>
+        <span class="votos-texto">Users consider this report important</span>
+      </div>
+      <button 
+        class="btn-votar" 
+        [class.votado]="yaVotado"
+        (click)="votarReporte()"
+        [disabled]="yaVotado">
+        {{ yaVotado ? 'You Already Voted' : 'Important Report' }}
+      </button>
+    </div>
+
+    <!-- Descripción -->
+    <div class="reporte-descripcion">
+      <h3>Description</h3>
+      <p class="descripcion-texto">{{ reporte.descripcion }}</p>
+    </div>
+
+    <!-- Mapa de Ubicación -->
+    <div class="reporte-mapa">
+      <h3>Location: Map</h3>
+      <div class="mapa-info">
+        <p>Coordenadas: {{ reporte.ubicacion.latitud }}, {{ reporte.ubicacion.longitud }}</p>
+      </div>
+      <div id="mapa" class="mapa-container"></div>
+    </div>
+
+    <!-- Botón Add Comentarios -->
+    <div class="reporte-acciones">
+      <button 
+        class="btn-comentarios" 
+        (click)="irAComentarios()">
+        Add Comment
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- Loading State -->
+<div class="loading-container" *ngIf="!reporte && !error">
+  <div class="loading-spinner"></div>
+  <p>Cargando detalle del reporte...</p>
+</div>
+
+<!-- Error State -->
+<div class="error-container" *ngIf="error">
+  <div class="error-message">
+    <h3>Error Loading Report</h3>
+    <p>{{ error }}</p>
+    <button class="btn-retry" (click)="obtenerReporte()">Retry</button>
+  </div>
+</div>
