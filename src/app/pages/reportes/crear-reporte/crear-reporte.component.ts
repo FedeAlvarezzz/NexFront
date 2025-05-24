@@ -76,7 +76,7 @@ export class CrearReporteComponent implements AfterViewInit {
   crearReporte(): void {
     if (this.formularioReporte.valid) {
       const nuevo: ReporteDTO = {
-        id: '', // o lo puedes omitir si se genera en backend
+        id: '',
         titulo: this.formularioReporte.value.titulo,
         descripcion: this.formularioReporte.value.descripcion,
         estadoActual: 'Pendiente',

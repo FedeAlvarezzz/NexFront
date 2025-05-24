@@ -1,23 +1,23 @@
 import { Component } from '@angular/core';
-import { CrearCategoriaDTO } from '../../../interface/crear-categoria-dto';
+import { CrearCategoriaDTO } from '../../../../interface/crear-categoria-dto';
 import { RouterModule } from '@angular/router';
-import { CommonModule } from '@angular/common';
 import Swal from 'sweetalert2';
+import { CategoriasService } from '../../../../services/categorias.service';
 
 @Component({
   selector: 'app-gestion-categorias',
   standalone: true,
-  imports: [RouterModule, CommonModule],
+  imports: [RouterModule],
   templateUrl: './gestion-categorias.component.html',
-  styleUrl: './gestion-categorias.component.css'
+  styleUrl: './gestion-categorias.component.css' 
 })
 export class GestionCategoriasComponent {
   categorias: CrearCategoriaDTO[];
   seleccionados: CrearCategoriaDTO[];
   textoBtnEliminar: string;
   
-  constructor() {
-    this.categorias = []; // Inicialización de la lista de categorías
+  constructor(public categoriaService: CategoriasService) {
+    this.categorias = categoriaService.listar(); // Inicialización de la lista de categorías
     this.seleccionados = []; // Inicialización de la lista de categorías seleccionadas
     this.textoBtnEliminar = ""; // Inicialización del texto del botón de eliminación
   }
@@ -49,7 +49,7 @@ export class GestionCategoriasComponent {
   
   public eliminarCategorias() {
     this.seleccionados.forEach(e1 => {
-      // Aquí deberías llamar al servicio para eliminar la categoría
+      this.categoriaService.eliminar(e1.titulo);
       this.categorias = this.categorias.filter(e2 => e2 !== e1);
     });
     this.seleccionados = [];

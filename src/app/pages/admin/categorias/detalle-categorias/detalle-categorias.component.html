@@ -1,0 +1,24 @@
+<div class="container pt-5 pb-5">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="card shadow">
+        <div class="card-header bg-primary text-white">
+          <h5 class="mb-0">
+            <i class="fa-solid fa-tag me-2"></i>Detalle de Categoría
+          </h5>
+        </div>
+        <div class="card-body">
+          <h6 class="card-title mb-3">Título</h6>
+          <p class="card-text">{{ categoria.titulo }}</p>
+          <h6 class="card-title mb-3">Descripción</h6>
+          <p class="card-text">{{ categoria.descripcion }}</p>
+        </div>
+        <div class="card-footer text-end">
+          <button class="btn btn-secondary" routerLink="/admin/categorias">
+            <i class="fa-solid fa-arrow-left me-1"></i> Volver
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
