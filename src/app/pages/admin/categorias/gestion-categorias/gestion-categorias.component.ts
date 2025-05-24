@@ -17,7 +17,8 @@ export class GestionCategoriasComponent {
   textoBtnEliminar: string;
   
   constructor(public categoriaService: CategoriasService) {
-    this.categorias = categoriaService.listar(); // Inicialización de la lista de categorías
+    // Inicialización de la lista de categorías
+    this.categorias = [];
     this.seleccionados = []; // Inicialización de la lista de categorías seleccionadas
     this.textoBtnEliminar = ""; // Inicialización del texto del botón de eliminación
   }
@@ -55,6 +56,8 @@ export class GestionCategoriasComponent {
     this.seleccionados = [];
     this.actualizarMensaje();
   }
+
+  
   
   private actualizarMensaje() {
     const tam = this.seleccionados.length;

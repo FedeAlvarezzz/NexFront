@@ -1,47 +1,50 @@
-<body>
   <div class="contenedor-login">
     <div class="seccion-marca">
       <img src="/assets/nexlogo.png" alt="NEX Logo" class="logo-nex">
     </div>
 
-    <div class="formulario">
+    <form [formGroup]="miFormulario" (ngSubmit)="registrar()" class="formulario">
       <h1 class="titulo">REGISTER</h1>
 
       <div class="grupo-doble">
         <div class="grupo-campo">
           <img src="/assets/pencil.png" alt="Name Icon" class="icono-campo">
-          <input type="text" placeholder="Full Name">
+          <input type="text" formControlName="nombre" placeholder="Full Name">
         </div>
         <div class="grupo-campo">
           <img src="/assets/location.png" alt="City Icon" class="icono-campo">
-          <input type="text" placeholder="City">
+          <input type="text" formControlName="ciudad" placeholder="City">
         </div>
       </div>
 
       <div class="grupo-doble">
         <div class="grupo-campo">
           <img src="/assets/email.png" alt="Email Icon" class="icono-campo">
-          <input type="email" placeholder="Email">
+          <input type="email" formControlName="email" placeholder="Email">
         </div>
         <div class="grupo-campo">
           <img src="/assets/house.png" alt="Address Icon" class="icono-campo">
-          <input type="text" placeholder="Address">
+          <input type="text" formControlName="direccion" placeholder="Address">
         </div>
       </div>
 
       <div class="grupo-doble">
         <div class="grupo-campo">
           <img src="/assets/cellphone.png" alt="Phone Icon" class="icono-campo">
-          <input type="text" placeholder="Phone Number">
+          <input type="text" formControlName="telefono" placeholder="Phone Number">
         </div>
         <div class="grupo-campo">
           <img src="/assets/pwd.png" alt="Password Icon" class="icono-campo">
-          <input type="password" placeholder="Password">
+          <input type="password" formControlName="password" placeholder="Password">
         </div>
       </div>
 
-      <div class="boton boton-login">REGISTER</div>
+      <div class="grupo-campo">
+        <img src="/assets/pwd.png" alt="Password Icon" class="icono-campo">
+        <input type="password" formControlName="confirmarPassword" placeholder="Confirm Password">
+      </div>
+
+      <button type="submit" class="boton boton-login">REGISTER</button>
       <img src="/assets/minilogo.png" alt="Mini Owl Logo" class="logo-mini">
-    </div>
+    </form>
   </div>
-</body>

@@ -15,7 +15,7 @@ export class CategoriasService {
   }
 
   public listar() {
-    return this.http.get<CategoriaDTO[]>(`${this.url}/listar`);
+    return this.http.get<MensajeDTO>(`${this.url}/listar`);
   }
 
   public crear(crearCategoriaDTO: CategoriaDTO) {

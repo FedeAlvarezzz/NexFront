@@ -8,6 +8,7 @@ import { Validators } from '@angular/forms';
 import mapboxgl, { MapMouseEvent } from 'mapbox-gl';
 import { isPlatformBrowser } from '@angular/common';
 import { CategoriasService } from '../../../services/categorias.service';
+import { CategoriaDTO } from '../../../interface/categoria-dto';
 @Component({
   selector: 'app-crear-reporte',
   standalone: true,
@@ -17,15 +18,16 @@ import { CategoriasService } from '../../../services/categorias.service';
 })
 export class CrearReporteComponent implements AfterViewInit {
 
+  categorias: CategoriaDTO[] = [];
   formularioReporte: FormGroup;
   mapa!: mapboxgl.Map;
   isBrowser = false;
-  categoriaService: CategoriasService = new CategoriasService;
 
   constructor(
     @Inject(PLATFORM_ID) private platformId: Object,
     private fb: FormBuilder,
     private reportesService: ReportesService,
+    private categoriasService: CategoriasService
   ) {
     this.isBrowser = isPlatformBrowser(this.platformId);
 
@@ -101,5 +103,15 @@ export class CrearReporteComponent implements AfterViewInit {
 
   }
   
-  
+  public listar(){
+    this.categoriasService.listar().subscribe({
+      next: (data) => {
+        this.categorias = data.mensaje;
+      },
+      error: (error) => {
+        console.error('Error al cargar las categorías:', error);
+        Swal.fire('Error', 'No se pudieron cargar las categorías', 'error');
+      }
+    });
+  }
 }
