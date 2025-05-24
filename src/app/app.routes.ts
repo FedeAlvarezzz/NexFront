@@ -2,6 +2,7 @@ import { Routes } from '@angular/router';
 import { InicioComponent } from './pages/inicio/inicio.component';
 import { LoginComponent } from './pages/login/login.component';
 import { RegistroComponent } from './pages/registro/registro.component';
+import { HomeUsuarioComponent } from './pages/home-usuario/home-usuario.component';
 import { PerfilUsuarioComponent } from './pages/perfil-usuario/perfil-usuario.component';
 import { PerfilComponent } from './pages/perfil/perfil.component';
 import { EditarPerfilComponent } from './pages/editar-perfil/editar-perfil.component';
@@ -21,6 +22,7 @@ export const routes: Routes = [
    { path: 'inicio', component: InicioComponent },
    { path: 'login', component: LoginComponent },
    { path: 'registro', component: RegistroComponent },
+   { path: 'home-usuario', component: HomeUsuarioComponent },
    { path: 'perfil-usuario', component: PerfilUsuarioComponent },
    { path: 'perfil', component: PerfilComponent },
    { path: 'editar-perfil', component: EditarPerfilComponent },
