@@ -37,7 +37,7 @@
         [class.votado]="yaVotado"
         (click)="votarReporte()"
         [disabled]="yaVotado">
-        {{ yaVotado ? 'Ya votaste' : 'Reporte Importante' }}
+        {{ yaVotado ? 'You Already Voted' : 'Important Report' }}
       </button>
     </div>
 
@@ -61,7 +61,7 @@
       <button 
         class="btn-comentarios" 
         (click)="irAComentarios()">
-        Add Comentarios
+        Add Comment
       </button>
     </div>
   </div>
@@ -76,8 +76,8 @@
 <!-- Error State -->
 <div class="error-container" *ngIf="error">
   <div class="error-message">
-    <h3>Error al cargar el reporte</h3>
+    <h3>Error Loading Report</h3>
     <p>{{ error }}</p>
-    <button class="btn-retry" (click)="obtenerReporte()">Reintentar</button>
+    <button class="btn-retry" (click)="obtenerReporte()">Retry</button>
   </div>
 </div>

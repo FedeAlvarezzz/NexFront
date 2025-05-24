@@ -9,6 +9,7 @@ import { RecuperarComponent } from './pages/recuperar/recuperar.component';
 import { AdminComponent } from './pages/admin/admin.component';
 import { GestionReportesComponent } from './pages/admin/gestion-reportes/gestion-reportes.component';
 import { DetalleReporteComponent } from './pages/reportes/detalle-reporte/detalle-reporte.component';
+import { ComentariosComponent } from './pages/comentarios/comentarios.component';
 import { CrearReporteComponent } from './pages/reportes/crear-reporte/crear-reporte.component';
 import { CodigoConfirmacionComponent } from './pages/codigo-confirmacion/codigo-confirmacion.component';
 import { HomeAdminComponent } from './pages/admin/home-admin/home-admin.component';
@@ -27,6 +28,7 @@ export const routes: Routes = [
    { path: 'perfil-usuario', component: PerfilUsuarioComponent },
    { path: 'editar-perfil', component: EditarPerfilComponent },
    { path: 'recuperar', component: RecuperarComponent },
+   { path: 'comentarios', component: ComentariosComponent},
    { path: 'admin', component: AdminComponent },
    { path: 'gestion-reportes', component: GestionReportesComponent },
    { path: 'detalle-reporte/:id', component: DetalleReporteComponent },

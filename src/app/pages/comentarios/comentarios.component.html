@@ -1,0 +1,113 @@
+<!-- comments.component.html -->
+<div class="comments-container">
+  
+  <!-- Header -->
+  <div class="header-card">
+    <div class="header-content">
+      <h1 class="header-title">
+        <i class="icon-comment"></i>
+        Comentarios del Reporte
+      </h1>
+      <button 
+        class="btn-back" 
+        (click)="goBack()"
+        type="button">
+        <i class="icon-arrow-left"></i>
+        Volver
+      </button>
+    </div>
+
+    <!-- Info del Reporte -->
+    <div *ngIf="currentReport; else reportError" class="report-info">
+      <h3 class="report-title">{{ currentReport?.titulo }}</h3>
+      <p class="report-description">{{ currentReport?.descripcion }}</p>
+      <div class="report-footer">
+        <span [class]="'status-badge ' + getStatusClass(currentReport?.estadoActual)">
+          {{ currentReport?.estadoActual }}
+        </span>
+        <span class="report-id">ID: {{ reportId }}</span>
+      </div>
+    </div>
+
+    <ng-template #reportError>
+      <div class="error-message">
+        <p>No se pudo cargar la información del reporte</p>
+      </div>
+    </ng-template>
+  </div>
+
+  <!-- Lista de Comentarios -->
+  <div class="comments-section">
+    <h2 class="section-title">
+      Comentarios ({{ comments.length }})
+    </h2>
+    
+    <!-- Loading Spinner -->
+    <div *ngIf="isLoading" class="loading-container">
+      <div class="spinner"></div>
+    </div>
+
+    <!-- Sin comentarios -->
+    <div *ngIf="!isLoading && comments.length === 0" class="no-comments">
+      <i class="icon-comment-large"></i>
+      <p>No hay comentarios para este reporte aún.</p>
+      <p class="subtitle">¡Sé el primero en comentar!</p>
+    </div>
+
+    <!-- Lista de comentarios -->
+    <div *ngIf="!isLoading && comments.length > 0" class="comments-list">
+      <div 
+        *ngFor="let comment of comments; trackBy: trackByCommentId" 
+        class="comment-item">
+        <div class="comment-content">
+          <div class="comment-avatar">
+            <i class="icon-user"></i>
+          </div>
+          <div class="comment-body">
+            <div class="comment-header">
+              <h4 class="comment-author">{{ comment.userName }}</h4>
+              <div class="comment-date">
+                <i class="icon-calendar"></i>
+                {{ formatDate(comment.createdAt) }}
+              </div>
+            </div>
+            <p class="comment-text">{{ comment.content }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Formulario para Nuevo Comentario -->
+  <div class="add-comment-section">
+    <h2 class="section-title">
+      <i class="icon-edit"></i>
+      Agregar Comentario
+    </h2>
+    
+    <div class="comment-form">
+      <div class="form-group">
+        <textarea
+          [(ngModel)]="newComment.content"
+          placeholder="Escribe tu comentario aquí..."
+          rows="4"
+          class="comment-textarea"
+          [disabled]="isLoading">
+        </textarea>
+      </div>
+      
+      <div class="form-actions">
+        <button
+          (click)="addComment()"
+          [disabled]="isLoading || !newComment.content?.trim()"
+          class="btn-submit"
+          type="button">
+          <span *ngIf="isLoading" class="btn-spinner"></span>
+          <i *ngIf="!isLoading" class="icon-send"></i>
+          {{ isLoading ? 'Enviando...' : 'Enviar Comentario' }}
+        </button>
+      </div>
+    </div>
+  </div>
+
+</div>

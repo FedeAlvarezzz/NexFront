@@ -55,7 +55,7 @@ export class DetalleReporteComponent implements OnInit, OnDestroy {
         this.reporte = reporteConsultado;
         this.inicializarMapa();
       } else {
-        this.error = 'No se pudo encontrar el reporte solicitado';
+        this.error = 'The requested report could not be found';
       }
     } catch (err) {
       this.error = 'Error al cargar los detalles del reporte';
