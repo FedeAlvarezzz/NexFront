@@ -4,7 +4,6 @@ import { LoginComponent } from './pages/login/login.component';
 import { RegistroComponent } from './pages/registro/registro.component';
 import { HomeUsuarioComponent } from './pages/home-usuario/home-usuario.component';
 import { PerfilUsuarioComponent } from './pages/perfil-usuario/perfil-usuario.component';
-import { PerfilComponent } from './pages/perfil/perfil.component';
 import { EditarPerfilComponent } from './pages/editar-perfil/editar-perfil.component';
 import { RecuperarComponent } from './pages/recuperar/recuperar.component';
 import { AdminComponent } from './pages/admin/admin.component';
@@ -26,13 +25,11 @@ export const routes: Routes = [
    { path: 'registro', component: RegistroComponent },
    { path: 'home-usuario', component: HomeUsuarioComponent },
    { path: 'perfil-usuario', component: PerfilUsuarioComponent },
-   { path: 'perfil', component: PerfilComponent },
    { path: 'editar-perfil', component: EditarPerfilComponent },
    { path: 'recuperar', component: RecuperarComponent },
    { path: 'admin', component: AdminComponent },
    { path: 'gestion-reportes', component: GestionReportesComponent },
-   // { path: 'detalle-reporte/:id', component: DetalleReporteComponent },
-   { path: 'detalle-reporte', component: DetalleReporteComponent },
+   { path: 'detalle-reporte/:id', component: DetalleReporteComponent },
    { path: 'editar-reporte/:id', component: CrearReporteComponent },
    { path: 'crear-reporte', component: CrearReporteComponent },
    { path: 'codigo-confirmacion', component: CodigoConfirmacionComponent },

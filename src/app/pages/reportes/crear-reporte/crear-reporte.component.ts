@@ -87,7 +87,9 @@ export class CrearReporteComponent implements AfterViewInit {
         ubicacion: {
           latitud: this.formularioReporte.value.ubicacion.latitud,
           longitud: this.formularioReporte.value.ubicacion.longitud
-        }
+        },
+        votosImportancia: 0,
+        ciudad: 'Armenia'
       };
   
       this.reportesService.crear(nuevo);

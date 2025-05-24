@@ -3,15 +3,15 @@
     <div class="recovery-card">
       <!-- Email Panel -->
       <div class="panel" [class.hidden]="currentPanel !== 'email'">
-        <h1 class="title">Recuperar Contraseña</h1>
+        <h1 class="title"> Account Recovery</h1>
         <p class="instruction">
-          Ingresa tu dirección de correo electrónico y te enviaremos un código de verificación para restablecer tu contraseña.
+          Enter your email address and we'll send you a verification code to reset your password.
         </p>
         <input 
           type="email" 
           class="email-input" 
           [(ngModel)]="email"
-          placeholder="correo@ejemplo.com"
+          placeholder="email@example.com"
           (keypress)="onEmailKeyPress($event)"
           #emailInput
         />
@@ -21,7 +21,7 @@
           (click)="sendCode()"
         >
           <span *ngIf="isLoading" class="loading"></span>
-          {{ isLoading ? 'ENVIANDO...' : 'ENVIAR CÓDIGO' }}
+          {{ isLoading ? 'SENDING...' : 'SEND CODE' }}
         </button>
       </div>
 
@@ -38,7 +38,7 @@
             type="text" 
             class="code-input" 
             maxlength="1"
-            [(ngModel)]="codeDigits[i]"
+            [value]="codeDigits[i]"
             (input)="onCodeInput($event, i)"
             (keydown)="onCodeKeyDown($event, i)"
             (paste)="onCodePaste($event)"

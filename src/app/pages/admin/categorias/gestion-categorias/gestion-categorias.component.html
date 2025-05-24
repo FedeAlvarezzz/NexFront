@@ -1,45 +1,47 @@
-<div class="container pt-5 pb-5">
-    <h5 class="mb-0">
-      <i class="fa-solid fa-tags me-3"></i>Gestión de Categorías
-    </h5>
-    <hr />
-    <div class="card-body">
-        <div class="mb-3">
-            <button type="button" routerLink="/crear-categoria" class="btn btn-success me-2">
-                <i class="fa-solid fa-plus me-1"></i> Crear
-            </button>
+<div class="contenedor-principal">
+    <div class="container">
+        <div class="management-card">
+            <div class="header-section">
+                <h2 class="page-title">Manage Categories</h2>
+                <div class="divider"></div>
+            </div>
+            
+            <div class="actions-section">
+                <button type="button" routerLink="/crear-categoria" class="btn btn-create">Create</button>
+                <button type="button" class="btn btn-delete" (click)="confirmarEliminacion()" [disabled]="seleccionados.length == 0">
+                  Delete {{ textoBtnEliminar }}
+                </button>
+            </div>
 
-            <button type="button" class="btn btn-danger" (click)="confirmarEliminacion()" [disabled]="seleccionados.length == 0">
-                <i class="fa-solid fa-trash me-1"></i> Eliminar {{ textoBtnEliminar }}
-            </button>
-        </div>
-
-        <div class="table-responsive">
-            <table class="table table-striped table-hover table-responsive">
-                <thead>
-                  <tr>
-                    <th></th> <!-- Celda vacía para checkboxes -->
-                    <th>ID</th>
-                    <th>Título</th>
-                    <th>Descripción</th>
-                    <th></th>
-                  </tr>
-                </thead>
-                <tbody class="table-group-divider">
-                  @for (item of categorias; track $index){
-                    <tr>
-                      <td>
-                        <input #check class="form-check-input" type="checkbox"
-                               (change)="seleccionar(item, check.checked)" />
-                      </td>
-                      <td><p>{{item.id}}</p></td>
-                      <td><p>{{item.titulo}}</p></td>
-                      <td><p>{{item.descripcion}}</p></td>
-                      <td><a routerLink="/detalle-categorias/{{item.id}}">Ver detalle</a></td>
-                    </tr>
-                  }
-                </tbody>
-            </table>
+            <div class="table-container">
+                <table class="custom-table">
+                    <thead>
+                        <tr>
+                            <th class="checkbox-col"></th>
+                            <th class="id-col">ID</th>
+                            <th class="title-col">Title</th>
+                            <th class="description-col">Description</th>
+                            <th class="actions-col">Category</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @for (item of categorias; track $index){
+                            <tr class="table-row">
+                                <td class="checkbox-cell">
+                                    <input #check class="custom-checkbox" type="checkbox"
+                                           (change)="seleccionar(item, check.checked)" />
+                                </td>
+                                <td class="id-cell">{{item.id}}</td>
+                                <td class="title-cell">{{item.titulo}}</td>
+                                <td class="description-cell">{{item.descripcion}}</td>
+                                <td class="actions-cell">
+                                    <a routerLink="/detalle-categorias/{{item.id}}" class="detail-link">Show Details</a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 </div>

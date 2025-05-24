@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { ReporteDTO } from '../interface/reporte-dto';
+import { Observable } from 'rxjs';
 
 
 @Injectable({
@@ -44,6 +45,13 @@ export class ReportesService {
    }
  }
 
+  public actualizarContadorVotos(id: string, nuevoContador: number): void {
+  const reporte = this.reportes.find(reporte => reporte.id === id);
+  if (reporte) {
+    reporte.votosImportancia = nuevoContador;
+  }
+}
+
  public crearReportesPrueba() {
   this.reportes.push({
     id: '1',
@@ -55,8 +63,10 @@ export class ReportesService {
       latitud: 4.532223167514729,
       longitud: -75.67406052559213
     },
+    ciudad: 'Armenia',
     imagen: 'https://picsum.photos/300?random=1',
-    estadoActual: 'Pendiente'
+    estadoActual: 'Pendiente',
+    votosImportancia: 1
   });
  
  
@@ -70,8 +80,10 @@ export class ReportesService {
       latitud: 4.532028280084418,
       longitud: -75.67143334464234
     },
+    ciudad: 'Circasia',
     imagen: 'https://picsum.photos/300?random=2',
-    estadoActual: 'Verificado'
+    estadoActual: 'Verificado',
+    votosImportancia: 2
   });
  
  
@@ -85,13 +97,12 @@ export class ReportesService {
       latitud: 4.533043571849234,
       longitud: -75.67568963143513
     },
+    ciudad: 'Calarcá',
     imagen: 'https://picsum.photos/300?random=3',
-    estadoActual: 'Pendiente'
-  });
- 
- 
+    estadoActual: 'Pendiente',
+    votosImportancia: 3
+  }); 
+
+  
  }
- 
-
-
 }

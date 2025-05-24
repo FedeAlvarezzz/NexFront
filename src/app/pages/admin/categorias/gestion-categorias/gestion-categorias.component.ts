@@ -33,16 +33,16 @@ export class GestionCategoriasComponent {
   
   public confirmarEliminacion() {
     Swal.fire({
-      title: "¿Estás seguro?",
-      text: "Esta acción eliminará las categorías seleccionadas.",
+      title: "You are sure?",
+      text: "This action will delete the selected categories.",
       icon: "warning",
       showCancelButton: true,
-      confirmButtonText: "Confirmar",
-      cancelButtonText: "Cancelar",
+      confirmButtonText: "Confirm",
+      cancelButtonText: "Cancel",
     }).then((result) => {
       if (result.isConfirmed) {
         this.eliminarCategorias();
-        Swal.fire("¡Eliminadas!", "Las categorías seleccionadas han sido eliminadas.", "success");
+        Swal.fire("¡Eliminated!", "The selected categories have been deleted.", "success");
       }
     });
   }
@@ -60,7 +60,7 @@ export class GestionCategoriasComponent {
     const tam = this.seleccionados.length;
   
     if (tam != 0) {
-      this.textoBtnEliminar = tam === 1 ? "1 elemento" : `${tam} elementos`;
+      this.textoBtnEliminar = tam === 1 ? "1 category" : `${tam} categories`;
     } else {
       this.textoBtnEliminar = "";
     }

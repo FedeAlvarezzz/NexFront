@@ -30,7 +30,9 @@ export class AppComponent {
     '/crear-reporte',
     '/mis-reportes',
     '/editar-perfil',
-    '/detalle-reporte'
+    '/detalle-reporte',
+    '/home-usuario',
+    '/detalle-reporte/'
   ];
 
   constructor(private router: Router) {
@@ -40,9 +42,9 @@ export class AppComponent {
       const rutaActual = event.urlAfterRedirects;
 
       console.log('Ruta actual:', rutaActual);
-
-      this.mostrarBarraAdmin = this.rutasConBarraAdmin.includes(rutaActual);
-      this.mostrarBarraUsuario = this.rutasConBarraUsuario.includes(rutaActual);
-      });
+      
+      this.mostrarBarraUsuario = this.rutasConBarraUsuario.some(ruta => rutaActual.startsWith(ruta))
+      this.mostrarBarraAdmin = this.rutasConBarraAdmin.some(ruta => rutaActual.startsWith(ruta))
+    });
   }
 }

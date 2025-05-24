@@ -1,64 +1,83 @@
-<div class="container">
-  <div class="report-card">
-    <div class="report-header">
-      <h1 class="report-title">Report 1</h1>
+<div class="detalle-reporte-container" *ngIf="reporte">
+  <div class="info-card">
+    <!-- Título Principal -->
+    <div class="reporte-titulo">
+      <h1>{{ reporte.titulo }}</h1>
     </div>
-    
-    <div class="main-content">
-      <div class="image-container">
-        <img src="assets/accident.png" alt="Report Image" class="report-image">
+
+    <!-- Imagen del Reporte -->
+    <div class="reporte-imagen-principal">
+      <img [src]="reporte.imagen" [alt]="reporte.titulo" class="imagen-reporte" />
+    </div>
+
+    <!-- Información Básica -->
+    <div class="reporte-info-basica">
+      <div class="info-item">
+        <span class="info-label">City:</span>
+        <span class="info-valor">{{ reporte.ciudad }}</span>
       </div>
-      
-      <div class="info-side">
-        <div class="info-item">
-          <span class="info-icon">
-            <img src="assets/location.png" alt="Location icon">
-          </span>
-          <span>Location</span>
-        </div>
-        
-        <div class="info-item">
-          <span class="info-icon">
-            <img src="assets/time.png" alt="Time icon">
-          </span>
-          <span>Time ago</span>
-        </div>
-        
-        <div class="info-item">
-          <span class="info-icon">
-            <img src="assets/category.png" alt="Category icon">
-          </span>
-          <span>Category</span>
-        </div>
-        
-        <div class="votes-count">Votes: 1</div>
-        <div class="importance-tag">Important</div>
+      <div class="info-item">
+        <span class="info-label">Category:</span>
+        <span class="info-valor">{{ reporte.categoria }}</span>
+      </div>
+      <div class="info-item">
+        <span class="info-label">Date:</span>
+        <span class="info-valor">{{ reporte.fecha | date: 'dd/MM/yyyy HH:mm' }}</span>
       </div>
     </div>
-    
-    <div class="description-container">
-      <h2 class="description-title">Description</h2>
-      <div class="description-content">
-        descripcion................................................................................................
-        ........................................................................................................
-        ........................................................................................................
-        ........................................................................................................
-        ........................................................................................................
-        ........................................................................................................
-        ........................................................................................................
-        ........................................................................................................
-        ........................................................................................................
-        ........................................................................................................
-        ........................................................................................................
+
+    <!-- Contador de Votos y Botón Votar -->
+    <div class="reporte-votos">
+      <div class="contador-votos">
+        <span class="votos-numero">{{ reporte.votosImportancia}}</span>
+        <span class="votos-texto">Users consider this report important</span>
       </div>
+      <button 
+        class="btn-votar" 
+        [class.votado]="yaVotado"
+        (click)="votarReporte()"
+        [disabled]="yaVotado">
+        {{ yaVotado ? 'Ya votaste' : 'Reporte Importante' }}
+      </button>
     </div>
-    
-    <div class="comment-section">
-      <div class="user-avatar">
-        <img src="assets/user.png" alt="User avatar">
+
+    <!-- Descripción -->
+    <div class="reporte-descripcion">
+      <h3>Description</h3>
+      <p class="descripcion-texto">{{ reporte.descripcion }}</p>
+    </div>
+
+    <!-- Mapa de Ubicación -->
+    <div class="reporte-mapa">
+      <h3>Location: Map</h3>
+      <div class="mapa-info">
+        <p>Coordenadas: {{ reporte.ubicacion.latitud }}, {{ reporte.ubicacion.longitud }}</p>
       </div>
-      <input type="text" class="comment-input" placeholder="Add Comment">
-      <button class="post-button">Post Comment</button>
+      <div id="mapa" class="mapa-container"></div>
     </div>
+
+    <!-- Botón Add Comentarios -->
+    <div class="reporte-acciones">
+      <button 
+        class="btn-comentarios" 
+        (click)="irAComentarios()">
+        Add Comentarios
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- Loading State -->
+<div class="loading-container" *ngIf="!reporte && !error">
+  <div class="loading-spinner"></div>
+  <p>Cargando detalle del reporte...</p>
+</div>
+
+<!-- Error State -->
+<div class="error-container" *ngIf="error">
+  <div class="error-message">
+    <h3>Error al cargar el reporte</h3>
+    <p>{{ error }}</p>
+    <button class="btn-retry" (click)="obtenerReporte()">Reintentar</button>
   </div>
 </div>
