@@ -13,7 +13,9 @@ import { DetalleReporteComponent } from './pages/reportes/detalle-reporte/detall
 import { CrearReporteComponent } from './pages/reportes/crear-reporte/crear-reporte.component';
 import { CodigoConfirmacionComponent } from './pages/codigo-confirmacion/codigo-confirmacion.component';
 import { HomeAdminComponent } from './pages/admin/home-admin/home-admin.component';
-import { GestionCategoriasComponent } from './pages/admin/gestion-categorias/gestion-categorias.component';
+import { GestionCategoriasComponent } from './pages/admin/categorias/gestion-categorias/gestion-categorias.component';
+import { DetalleCategoriasComponent } from './pages/admin/categorias/detalle-categorias/detalle-categorias.component';
+import { CrearCategoriaComponent } from './pages/admin/categorias/crear-categoria/crear-categoria.component';
 
 
 
@@ -35,5 +37,7 @@ export const routes: Routes = [
    { path: 'crear-reporte', component: CrearReporteComponent },
    { path: 'codigo-confirmacion', component: CodigoConfirmacionComponent },
    { path: 'home-admin', component: HomeAdminComponent},
-   { path: 'gestion-categorias', component: GestionCategoriasComponent}
+   { path: 'gestion-categorias', component: GestionCategoriasComponent},
+   { path: 'detalle-categorias/:id', component: DetalleCategoriasComponent},
+   { path: 'crear-categoria', component: CrearCategoriaComponent}
 ];

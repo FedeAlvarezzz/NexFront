@@ -7,7 +7,7 @@ import { FormBuilder } from '@angular/forms';
 import { Validators } from '@angular/forms';
 import mapboxgl, { MapMouseEvent } from 'mapbox-gl';
 import { isPlatformBrowser } from '@angular/common';
-
+import { CategoriasService } from '../../../services/categorias.service';
 @Component({
   selector: 'app-crear-reporte',
   standalone: true,
@@ -20,11 +20,12 @@ export class CrearReporteComponent implements AfterViewInit {
   formularioReporte: FormGroup;
   mapa!: mapboxgl.Map;
   isBrowser = false;
+  categoriaService: CategoriasService = new CategoriasService;
 
   constructor(
     @Inject(PLATFORM_ID) private platformId: Object,
     private fb: FormBuilder,
-    private reportesService: ReportesService
+    private reportesService: ReportesService,
   ) {
     this.isBrowser = isPlatformBrowser(this.platformId);
 
@@ -76,7 +77,7 @@ export class CrearReporteComponent implements AfterViewInit {
   crearReporte(): void {
     if (this.formularioReporte.valid) {
       const nuevo: ReporteDTO = {
-        id: '', // o lo puedes omitir si se genera en backend
+        id: '',
         titulo: this.formularioReporte.value.titulo,
         descripcion: this.formularioReporte.value.descripcion,
         estadoActual: 'Pendiente',

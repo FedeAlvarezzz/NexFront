@@ -1,0 +1,14 @@
+<div class="container mt-5">
+  <h2>Crear Nueva Categoría</h2>
+  <form [formGroup]="formularioCategoria" (ngSubmit)="crearCategoria()">
+    <div class="mb-3">
+      <label for="titulo" class="form-label">Título</label>
+      <input type="text" id="titulo" formControlName="titulo" class="form-control" placeholder="Ingrese el título de la categoría" required>
+    </div>
+    <div class="mb-3">
+      <label for="descripcion" class="form-label">Descripción</label>
+      <textarea id="descripcion" formControlName="descripcion" class="form-control" rows="3" placeholder="Ingrese una descripción para la categoría" required></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Crear Categoría</button>
+  </form>
+</div>
